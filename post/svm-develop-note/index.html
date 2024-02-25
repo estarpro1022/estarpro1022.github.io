@@ -1,0 +1,297 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SVM develop note | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="SVM develop note | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="numpy
+docs: NumPy快速入门教程-中文
+用于科学计算、图像处理的包，默认数据类型为float64
+属性
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; np.array([1, 2, ..." />
+    <meta name="keywords" content="numpy,python" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              SVM develop note
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-12-15
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/KGxzatDfr/" class="post-tag">
+                  # numpy
+                </a>
+              
+                <a href="https://estarpro1022.github.io/tag/Y54kAJFBUQ/" class="post-tag">
+                  # python
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="numpy">numpy</h2>
+<p>docs: <a href="https://www.numpy.org.cn/user/quickstart.html">NumPy快速入门教程-中文</a></p>
+<p>用于科学计算、图像处理的包，默认数据类型为float64</p>
+<h3 id="属性">属性</h3>
+<pre><code class="language-python">&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; np.array([1, 2, 3])
+array([1, 2, 3])
+&gt;&gt;&gt; a = np.array([[1, 2, 3], [3, 4, 5]], dtype=np.int32)	# 指定数组元素数据类型
+array([[1, 2, 3],
+       [3, 4, 5]])
+&gt;&gt;&gt; a.shape	# 数组维度
+(2, 3)
+&gt;&gt;&gt; a.ndim	# 数组维度个数，即len(a.shape)
+2
+&gt;&gt;&gt; a.size	# shape所有数相乘
+6
+&gt;&gt;&gt; a.dtype	# 元素的数据类型
+dtype('int32')
+&gt;&gt;&gt; a.astype(np.float64)	# 返回元素类型为float64的新数组
+array([[1., 2., 3.],
+       [3., 4., 5.]])
+</code></pre>
+<h3 id="创建数组">创建数组</h3>
+<pre><code class="language-python">&gt;&gt;&gt; np.array([1, 2, 3])
+array([1, 2, 3])
+&gt;&gt;&gt; np.zeros([2, 3])	# 等价于np.zeros(6).reshape(2, 3)
+array([[0., 0., 0.],
+       [0., 0., 0.]])
+&gt;&gt;&gt; zeros = np.zeros([2, 3])
+&gt;&gt;&gt; zeros.dtype == np.float64	# 默认类型float64
+True
+&gt;&gt;&gt; np.arange(0, 5, 1)  # [0, 5)
+array([0, 1, 2, 3, 4])
+&gt;&gt;&gt; 
+&gt;&gt;&gt; from numpy import pi
+&gt;&gt;&gt; x = np.linspace(0, 2 * pi, 100)	# 100个均匀分布在[0, 2 * pi]的float64类型的数
+&gt;&gt;&gt; np.sin(x)  # 对每个元素做sin处理
+array([ 0.00000000e+00,  6.34239197e-02,  1.26592454e-01,  1.89251244e-01,
+        2.51147987e-01,  3.12033446e-01,  3.71662456e-01,  4.29794912e-01,
+       	......................省略......................
+        -1.89251244e-01, -1.26592454e-01, -6.34239197e-02, -2.44929360e-16])
+</code></pre>
+<h3 id="处理图像">处理图像</h3>
+<p>下载依赖：<code>conda install pillow</code></p>
+<pre><code class="language-python">from PIL import Image
+import numpy as np
+
+image = Image.open('photo.jpg')
+image = np.array(image)	# 转为numpy数组
+print(image.shape, image.size, image.dtype)	# (1706, 1280, 3) 6551040 uint8
+
+# 提取红色像素点
+image_red = image[:, :, 0]
+# Image.fromarray(image_red).show()
+
+# 重叠两张图片 重叠的部分大小要一致
+im_a = np.array(Image.open('a.png'))
+im_b = np.array(Image.open('b.png'))
+combine = im_a[0:500, 0:400, :] * 0.5 + im_b[0:500, 0:400, :] * 0.5
+combine = combine.astype(np.uint8)
+# Image.fromarray(combine).show()
+
+# 左右反转图片
+image_flip = image[:, ::-1, :]
+# Image.fromarray(image_flip).show()
+</code></pre>
+<h2 id="svm">SVM</h2>
+<p>docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">sklearn.svm.SVC</a></p>
+<p>实现简单的二分类器，并找到支持向量和超平面</p>
+<pre><code class="language-python"># 训练SVM模型
+clf = svm.SVC(kernel='linear')
+clf.fit(X, Y)
+
+support_vectors = clf.support_vectors_
+coef = clf.coef_[0]
+intercept = clf.intercept_
+k = -coef[0] / coef[1]  # 直线斜率
+b = -intercept[0] / coef[1]  # 直线截距
+</code></pre>
+<p>参考：<a href="http://t.csdnimg.cn/xclZU">利用sklearn.svm分类后如何画出超平面</a></p>
+<h2 id="matplotlib绘图">matplotlib绘图</h2>
+<p>下载依赖：<code>conda install matplotlib</code>（在虚拟环境中下载）</p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+
+x_coordinates = [1, 2, 3]
+y_coordinates = [2, 4, 6]
+plt.plot(x_coordinates, y_coordinates)  # 拟合线条
+plt.show()	# 绘图
+
+# plt.scatter(x_coordinates, y_coordinates)  # 绘制散点图
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/MxaRsUX.png" alt="image-20231215113734552" loading="lazy"></figure>
+<p>注意：</p>
+<ul>
+<li>取消勾选“Show plots in tool window“
+<ul>
+<li>reference: <a href="https://stackoverflow.com/questions/49048520/how-to-prevent-pycharm-from-overriding-default-backend-as-set-in-matplotlib">How to prevent PyCharm from overriding default backend as set in matplotlib?</a></li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/LhBwKoz.png" alt="image-20231215113425667" loading="lazy"></figure>
+<h2 id="python-basic">python basic</h2>
+<pre><code class="language-python">&gt;&gt;&gt; type(&quot;123&quot;) == str	# not &quot;str&quot;
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#numpy">numpy</a>
+<ul>
+<li><a href="#%E5%B1%9E%E6%80%A7">属性</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84">创建数组</a></li>
+<li><a href="#%E5%A4%84%E7%90%86%E5%9B%BE%E5%83%8F">处理图像</a></li>
+</ul>
+</li>
+<li><a href="#svm">SVM</a></li>
+<li><a href="#matplotlib%E7%BB%98%E5%9B%BE">matplotlib绘图</a></li>
+<li><a href="#python-basic">python basic</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/windows-de-powershell-shu-ru-ming-ling-conda-activate-bao-cuo-bing-qie-huan-jing-ming-bu-xian-shi/">
+              <h3 class="post-title">
+                Windows的Powershell输入命令conda activate报错，并且环境名不显示
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

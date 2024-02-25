@@ -1,0 +1,260 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pip换源与Selenium登录教务系统 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="pip换源与Selenium登录教务系统 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="浏览器自动化工具可以完成填写表单、查找元素等工作，就不需要JavaScript傻乎乎地getElementById了。这里我们选择了Selenium，用Python编写代码。
+pip换源
+之前把Anaconda卸载了，现在重新用Python..." />
+    <meta name="keywords" content="Anaconda,pip,Selenium" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              pip换源与Selenium登录教务系统
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-10-15
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/QWvfZ_OP0/" class="post-tag">
+                  # Anaconda
+                </a>
+              
+                <a href="https://estarpro1022.github.io/tag/Ra3vsd6BSm/" class="post-tag">
+                  # pip
+                </a>
+              
+                <a href="https://estarpro1022.github.io/tag/_QgYlBEUle/" class="post-tag">
+                  # Selenium
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>浏览器自动化工具可以完成填写表单、查找元素等工作，就不需要JavaScript傻乎乎地getElementById了。这里我们选择了Selenium，用Python编写代码。</p>
+<h1 id="pip换源">pip换源</h1>
+<p>之前把Anaconda卸载了，现在重新用Python还得装回来，要不然环境会乱七八糟的。不过过程并不麻烦，配置一下环境变量即可。</p>
+<p>然而在使用<code>pip</code>安装包的时候出了问题，下载到一半卡主不动了。</p>
+<pre><code class="language-bash">PS E:\code\Python\pythonProject&gt; pip install ddddocr
+Defaulting to user installation because normal site-packages is not writ
+eable
+Looking in indexes: http://pypi.douban.com/simple
+...
+</code></pre>
+<p>输出内容显示镜像源是豆瓣的，然而当我们随便打开其中一个包时，访问页面404。这就说明问题了：镜像源的包都不存在了，那谈何<code>pip</code>下载。</p>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/8xnCjU3.png" alt="image-20231015213450740" loading="lazy"></figure>
+<p><strong>解决方法</strong>：换源</p>
+<ol>
+<li>查看pip配置。我们先查看下当前镜像源是什么，发现是已经过时的豆瓣源（现在互联网上还存在很多过时的文章，说要换豆瓣源🤣）</li>
+</ol>
+<pre><code class="language-shell">PS E:\code\Python\pythonProject&gt; pip config list
+global.index-url='http://pypi.douban.com/simple'
+global.trusted-host='pypi.douban.com'
+</code></pre>
+<ol start="2">
+<li>更改镜像源为<strong>清华源</strong>。注意写入文件的位置不是用户主目录下的<code>.pip</code></li>
+</ol>
+<pre><code class="language-shell">PS E:\code\Python\pythonProject&gt; pip3 config set global.index-url https:
+//pypi.tuna.tsinghua.edu.cn/simple/
+Writing to C:\Users\estar\AppData\Roaming\pip\pip.ini
+PS E:\code\Python\pythonProject&gt; pip3 config set global.trusted-host htt
+ps://pypi.tuna.tsinghua.edu.cn
+Writing to C:\Users\estar\AppData\Roaming\pip\pip.ini
+PS E:\code\Python\pythonProject&gt; pip config list
+global.index-url='https://pypi.tuna.tsinghua.edu.cn/simple/'
+global.trusted-host='https://pypi.tuna.tsinghua.edu.cn'
+</code></pre>
+<p>至此，镜像源更改完毕，pip可以正常安装包了</p>
+<h1 id="selenium访问南京大学教务系统">Selenium访问南京大学教务系统</h1>
+<p>Selenium基于WebDriver，过程就是建立连接-处理页面-关闭连接</p>
+<pre><code class="language-python">import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import ddddocr
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(2)	# 设置全局等待时间，若两秒后还未找到元素就报错NoSuchElementException
+driver.get(&quot;http://elite.nju.edu.cn/jiaowu/&quot;)
+
+username = driver.find_element(By.ID, &quot;userName&quot;)
+password = driver.find_element(By.ID, &quot;password&quot;)
+image = driver.find_element(By.ID, &quot;ValidateImg&quot;)	# 验证码图片
+validateCode = driver.find_element(By.ID, &quot;ValidateCode&quot;)
+submit = driver.find_element(By.CLASS_NAME, &quot;Btn&quot;)
+
+image.screenshot(&quot;image.png&quot;)	# 将图片保存到本地
+ocr = ddddocr.DdddOcr()	# 验证码识别
+with open(&quot;image.png&quot;, &quot;rb&quot;) as fp:
+    image_photo = fp.read()
+resultCode = ocr.classification(image_photo)
+
+username.send_keys(&quot;*****&quot;)
+password.send_keys(&quot;*****&quot;)
+validateCode.send_keys(resultCode)
+submit.click()
+
+# while True:	# 保持页面不关闭
+#     pass
+</code></pre>
+<p>大致的逻辑在注释中说明了，这里需要额外提一点的是验证码处理，调用了<code>ddddocr</code>库</p>
+<p>参考：</p>
+<ul>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/75717350">怎么安装Anaconda3</a></p>
+</li>
+<li>
+<p><a href="http://t.csdnimg.cn/25N8c">Python3 pip3查看和设置当前镜像源</a></p>
+</li>
+<li>
+<p><a href="http://t.csdnimg.cn/RuhfY">python+selenium自动识别简单验证码实现自动登录</a></p>
+</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#pip%E6%8D%A2%E6%BA%90">pip换源</a></li>
+<li><a href="#selenium%E8%AE%BF%E9%97%AE%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F">Selenium访问南京大学教务系统</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/ubuntu-xia-ru-he-qie-huan-clash-dai-li/">
+              <h3 class="post-title">
+                ubuntu下如何切换clash代理
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,267 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MIT 6.null--data wrangling | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="MIT 6.null--data wrangling | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="正则表达式
+常见的模式有：
+
+. 除换行符之外的”任意单个字符”
+* 匹配前面字符零次或多次
++ 匹配前面字符一次或多次
+[abc] 匹配 a, b 和 c 中的任意一个
+(RX1|RX2) 任何能够匹配RX1 或 RX2的结果
+{m, n..." />
+    <meta name="keywords" content="6.null" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              MIT 6.null--data wrangling
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-10-17
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/gk-IwCWnN/" class="post-tag">
+                  # 6.null
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="正则表达式">正则表达式</h1>
+<p>常见的模式有：</p>
+<ul>
+<li><code>.</code> 除换行符之外的”任意单个字符”</li>
+<li><code>*</code> 匹配前面字符零次或多次</li>
+<li><code>+</code> 匹配前面字符一次或多次</li>
+<li><code>[abc]</code> 匹配 <code>a</code>, <code>b</code> 和 <code>c</code> 中的任意一个</li>
+<li><code>(RX1|RX2)</code> 任何能够匹配<code>RX1</code> 或 <code>RX2</code>的结果</li>
+<li><code>{m, n}</code> 匹配m-n次</li>
+<li><code>^</code> 行首</li>
+<li><code>$</code> 行尾</li>
+</ul>
+<p>目前采用<a href="https://en.wikibooks.org/wiki/Regular_Expressions/POSIX-Extended_Regular_Expressions">extended regular expression</a>(ERE)较多，像<code>sed</code> 和 <code>grep</code> 命令加上<code>-E</code> option就可以支持扩展正则表达式了</p>
+<p>尽可能加锚点 <code>^</code> 和 <code>$</code>，减少多余的匹配</p>
+<p><a href="https://regex101.com/r/qqbZqh/2">正则debugger</a></p>
+<p>在 <code>*</code> 和 <code>+</code> 后面加上 <code>+</code> 就可实现非贪婪匹配，但是遗憾的是 <code>sed</code> 流编辑器不支持</p>
+<p>Teacher: 强烈推荐学习正则表达式</p>
+<h1 id="linux-command">Linux Command</h1>
+<p>示例：</p>
+<pre><code class="language-shell">ssh myserver journalctl
+ | grep sshd
+ | grep &quot;Disconnected from&quot;
+ | sed -E 's/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/'
+ | sort | uniq -c
+ | sort -nk1,1 | tail -n10
+ | awk '{print $2}' | paste -sd,
+</code></pre>
+<h2 id="sed">sed</h2>
+<p>流编辑器，可以按行处理输出结果</p>
+<ul>
+<li><code>... | sed 's/hello/hi/'</code> ，记得在末尾加上终止符<code>/</code></li>
+<li><code>sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'</code> 将大写字母全部替换成小写</li>
+</ul>
+<h2 id="sort">sort</h2>
+<p><a href="https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html#FOOT1">sort</a> 用于对多行文本进行排序，默认升序字典序</p>
+<p><code>-n</code> numeric sort，用于比较数字，即1 &lt; 2，11 &gt; 2，</p>
+<p><code>-d</code> 字典序</p>
+<p><code>-V</code> <a href="https://www.gnu.org/software/coreutils/manual/html_node/Version-sort-overview.html">version sort</a></p>
+<p><code>-k 1,1</code> 表示按照第一列排序，<code>-nk1,1</code>是简写</p>
+<pre><code class="language-txt">&quot;*** fruit.txt ***&quot;
+apple 10
+banana 5
+orange 8
+
+&quot;*** sort ***&quot;
+$ sort -n -k 2 fruit.txt # remember to add -n option, or it will use alphabetical order by default
+banana 5
+orange 8
+apple 10
+</code></pre>
+<h2 id="uniq">uniq</h2>
+<p><s>删除重复行</s></p>
+<blockquote>
+<p>The input need not be sorted, but repeated input lines are detected only if they are <strong>adjacent</strong>. If you want to discard non-adjacent duplicate lines, perhaps you want to use <code>sort -u</code>.</p>
+</blockquote>
+<p>uniq删除的是相邻重复行，而不是所有重复行，这就是为什么示例中先把结果sort的原因。也可以用 <code>sort -u</code> 直接得到删除重复行后的结果</p>
+<p>可以用<code>uniq -c</code>计算行的重复数</p>
+<pre><code>$ sort dog.txt | uniq -c
+      3 dog
+      1 pup
+      1 puppy
+</code></pre>
+<h2 id="awk">awk</h2>
+<p>编程语言 <code>awk '{print $2}'</code></p>
+<h2 id="bc">bc</h2>
+<p>a simple calculator</p>
+<p>use <code>-l</code> to define standard math library</p>
+<pre><code class="language-shell">$ echo &quot;1+2&quot; | bc -l
+3
+</code></pre>
+<h2 id="xargs">xargs</h2>
+<p>xargs treat input as command arguments</p>
+<pre><code class="language-shell">$ find . -name &quot;*.py&quot; -print0 | xargs -0 tar cf python.tar
+</code></pre>
+<h1 id="mixed">Mixed</h1>
+<p>想到服务器的作用了，可以挂一些小应用，向服务器发送请求就可以得到想要的数据，并不是只有挂博客这么一个功能。</p>
+<p>后面会讲ssh远程连接服务器</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li>
+<li><a href="#linux-command">Linux Command</a>
+<ul>
+<li><a href="#sed">sed</a></li>
+<li><a href="#sort">sort</a></li>
+<li><a href="#uniq">uniq</a></li>
+<li><a href="#awk">awk</a></li>
+<li><a href="#bc">bc</a></li>
+<li><a href="#xargs">xargs</a></li>
+</ul>
+</li>
+<li><a href="#mixed">Mixed</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/pip-huan-yuan-yu-selenium-deng-lu-jiao-wu-xi-tong/">
+              <h3 class="post-title">
+                pip换源与Selenium登录教务系统
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

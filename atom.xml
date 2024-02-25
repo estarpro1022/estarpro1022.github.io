@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://estarpro1022.github.io/</id>
+    <title>Kartone的小窝</title>
+    <updated>2024-02-25T07:50:01.617Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://estarpro1022.github.io/"/>
+    <link rel="self" href="https://estarpro1022.github.io/atom.xml"/>
+    <subtitle>没有什么能改变一个人，除了他自己</subtitle>
+    <logo>https://estarpro1022.github.io/images/avatar.png</logo>
+    <icon>https://estarpro1022.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Kartone的小窝</rights>
+    <entry>
+        <title type="html"><![CDATA[PT新手探索历程]]></title>
+        <id>https://estarpro1022.github.io/post/pt-xin-shou-tan-suo-li-cheng/</id>
+        <link href="https://estarpro1022.github.io/post/pt-xin-shou-tan-suo-li-cheng/">
+        </link>
+        <updated>2024-02-25T07:31:59.000Z</updated>
+        <content type="html"><![CDATA[<p>快过年了，我想下一部电影到U盘中，这样就可以把U盘插到电视上享受高画质电影了。在网上的搜索不是很顺利，虽说在线流媒体的网站有很多，但是想下载一部电影还是很难的。在电影天堂中，我看到了下载链接，兴冲冲地点进去，发现是一串以<code>magnet:</code>开头的奇怪链接。百度一番后，发现这叫磁力链，需要特殊的下载器。于是我下载了<strong>BitComet</strong>，一款免费的bt下载软件，速度也还可以，每秒1MB。</p>
+<p>之后便一发不可收拾，我开始对收集电影充满热衷，接连下了好几部流行电影，256GB的U盘也终于有了用武之地。</p>
+<p>我开始好奇bt工作的协议，gpt告诉我</p>
+<blockquote>
+<p>BitTorrent 是一种<strong>点对点</strong>文件共享协议，它的基本原理是允许用户在下载文件的同时，也将它们上传给其他用户。这种分布式的方式使得文件可以更快地下载，因为下载者不仅从一个中心服务器获取文件，而是从许多其他用户那里获取。</p>
+</blockquote>
+<p>当时还因为<em>下载</em>跟<em>上传</em>这两个词的含义困惑了许久。</p>
+<p>有bt就会有pt。pt为了防止某些用户只下载不上传，设置了分享率和做种要求，从而达到保种、续种的目的。</p>
+<p>恰逢春节，许多pt站点开放注册，我偶然成为了一个pt站（hdkyl麒麟）的注册用户。在这里，我发现了新大陆：有很多高清电影和电视剧资源。新人初来乍到，很多不懂，站点提供了<a href="https://blog.17lai.site/posts/9806d7f1/">新人pt指南</a>。当初在老家的图书馆对着这手册仔仔细细地研读。手册讲得很细，是个通俗易懂的教程，为通过新人考核提供了有效方法。</p>
+<figure data-type="image" tabindex="1"><img src="https://img.kartone.site/image/image-20240225145935269.png" alt="image-20240225145935269" loading="lazy"></figure>
+<p>实践出真知，有些手册看不懂的东西上手实操就清楚了。按着站点指定的下载器装了qBittorrent，一开始还惴惴不安地担心是否下错了，会不会被封号。当种子在qb(qBittorrent)中打开，连接到其他用户并开始下载的时候，一切都变得奇妙起来。</p>
+<p>在家那几天，我经常干的一件事情就是找资源、下载，看着下载量和上传量的稳步上升，心里十分欣喜。</p>
+<p>后来，我开始对着手册研究做种。种子的命名规则十分繁琐，各个站点的命名要求也不尽相同。此外，发种还需要补充简介、编码信息、海报等等，第一次发种就花了很多时间。种子生成后，如何做种也卡住了我。原来做种的要求是做种目录是资源的父目录。手册上有一句红字标明了这段话，看的时候漏掉了😓</p>
+<p>本机硬盘、U盘同时挂着种子，下载了不少资源。然而出现了一些问题，我的U盘性能太低，看电影一卡一卡，并且读写性能都没有100MB，最让人无法忍受的是，U盘的读写速度在80MB/s左右开始逐步下降到零，卡了几秒钟后又恢复到80MB/s，如此反复。本机的硬盘剩余空间也所剩无几，下资源都要小心翼翼。</p>
+<p>因此，我迫切地需要一块新的大容量硬盘——这又打开了硬盘这一新领域。在B站上，我看了各种硬盘的测评，最终选择了梵想 PS 2000，410(原价)+35(保修)入手国产1T硬盘。当初纠结了许久，因为四百块可不是小数目。后来还是咬咬牙买了，反正早晚都得买，干嘛等。</p>
+<p>至于心仪的硬盘拿到手，已经是返校的时候了 。有了之前U盘做种的经验，这一次更加得心应手：1T的硬盘被快速塞满，并通过了两个站点的新手考核。虽说现在很想进一步提高上传量，但是接下来一段时间应该不会再买硬盘了，毕竟对于学生党而言硬盘的价格还是挺贵的。准备之后利用机房的电脑挂着做种，当然了，挂个白天还是没问题的。</p>
+<p>在选购硬盘的同时，我也先后了解了nas、群晖、辅种、硬盘盒等pter常提的词，算是初步入门了。</p>
+<p>最近在用一款插件PT Plugin Plus，可以汇总多个站点、一键下载、查看“走过的路”（上传、下载等信息），应该也算进阶的刚刚开始吧。</p>
+<figure data-type="image" tabindex="2"><img src="https://img.kartone.site/image/PT-Plugin-Plus-UserData.png" alt="PT-Plugin-Plus-UserData" loading="lazy"></figure>
+<p>买的网线到了，插到电脑上并认证校园网后便可用ipv6畅游互联网，当然，也包括我们下一步的进军目标：北洋园tjupt</p>
+<p><strong>有用的资料</strong>：</p>
+<ul>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1C84y1e7w9">(B站)外接硬盘盒的过程</a></p>
+</li>
+<li>
+<p><a href="https://www.manwuji.com/2160.html">(教程)PT助手远程配置连接qBittorrent下载器</a></p>
+</li>
+<li>
+<p><a href="https://item.lenovo.com.cn/product/1013857.html">(了解USB接口)2021款 小新 Pro 16 锐龙版16.0英寸全面屏轻薄笔记本 深空灰</a></p>
+</li>
+<li>
+<p><a href="https://www.pkuanvil.com/topic/301/%E7%AE%80%E5%8D%95%E5%86%99%E5%86%99%E7%8E%A9%E8%BF%87%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E4%BA%8Enexusphp%E7%9A%84pt%E7%AB%99%E7%9A%84%E5%BF%AB%E9%80%9F%E4%BB%8B%E7%BB%8D">简单写写玩过的几个基于NexusPHP的PT站的快速介绍</a>，介绍了北邮人pt和天大的北洋园</p>
+</li>
+<li>
+<p><a href="https://sunyunqiang.com/blog/bittorrent_protocol/">BitTorrent 协议及其工作原理解析</a>，rfc文档</p>
+</li>
+<li>
+<p><a href="https://ydjsir.com.cn/2020/09/15/EduIPv6-OpenWRT/">(YDJSIR)教育网IPv6路由方案：以南京大学为例</a></p>
+</li>
+<li>
+<p><a href="https://www.zhihu.com/tardis/zm/art/404306553?source_id=1003">大学宿舍寝室路由器(Wi-Fi)保姆级选购、安装与使用教程（2023年双11版）</a></p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[npm create vue@latest没有反应solution]]></title>
+        <id>https://estarpro1022.github.io/post/npm-create-vuelatest-mei-you-fan-ying-solution/</id>
+        <link href="https://estarpro1022.github.io/post/npm-create-vuelatest-mei-you-fan-ying-solution/">
+        </link>
+        <updated>2024-02-05T14:18:02.000Z</updated>
+        <content type="html"><![CDATA[<p>最近启动了大创项目，需要做一个前端展示界面，自然而然地想到了用vue。不过vue此前还没拿来过写项目，于是踏上了vue学习之旅。</p>
+<p>怎料创建第一个项目时就出了问题。按照官方文档在终端输入<code>npm create vue@latest</code>后，终端就卡住了，什么也不输出。大概等了几分钟，跳出来说timeout。</p>
+<p>发现 <code>node</code> 版本有些老了，才18，而最新版的已经到了20.11.0 LTS。于是果断卸载nodejs，重新安装后，<code>npm create vue@latest</code>就能正常跑了</p>
+<pre><code class="language-shell">PS E:\code\vue\example&gt; npm create vue@latest
+Need to install the following packages:
+create-vue@3.9.2
+Ok to proceed? (y)
+
+Vue.js - The Progressive JavaScript Framework
+√ 是否启用 JSX 支持？ ... 否 / 是
+√ 是否引入 Vue Router 进行单页面应用开发？ ... 否 / 是
+√ 是否引入 Pinia 用于状态管理？ ... 否 / 是
+√ 是否引入 Vitest 用于单元测试？ ... 否 / 是
+√ 是否要引入一款端到端（End to End）测试工具？ » 不需要
+√ 是否引入 ESLint 用于代码质量检测？ ... 否 / 是
+
+正在构建项目 E:\code\vue\example\vue-project...
+
+项目构建完成，可执行以下命令：
+
+  npm run dev
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://img.kartone.site/image/image-20240205223359739.png" alt="image-20240205223359739" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2023fall 人机交互重点整理]]></title>
+        <id>https://estarpro1022.github.io/post/2023fall-ren-ji-jiao-hu-chong-dian-zheng-li/</id>
+        <link href="https://estarpro1022.github.io/post/2023fall-ren-ji-jiao-hu-chong-dian-zheng-li/">
+        </link>
+        <updated>2024-01-06T11:15:13.000Z</updated>
+        <content type="html"><![CDATA[<p>以下是南京大学软件学院(NJU Software Engineering， NJUSE)2023秋季学期人机交互的重点整理</p>
+<h1 id="总复习">#总复习</h1>
+<h2 id="题型">题型</h2>
+<h2 id="人机交互">人机交互</h2>
+<p>整理：</p>
+<p>ACM定义的人机交互HCI是指：是一门有关设计、评估和实现人类使用的交互式计算系统，并研究其周围主要现象的学科。</p>
+<p>不能够设计用户体验，只能为用户体验而设计</p>
+<p>设计和开发人员容易犯的两类错误</p>
+<ul>
+<li>假设对于技术的使用方式的理解可以通过他们的自主思考实现，即想象这个技术是如何被使用的</li>
+<li>认为每个人都是相同的</li>
+</ul>
+<p>从开关灯的按钮中获得的启发：</p>
+<ul>
+<li>我们认为会怎样做和实际上会怎样做之间存在着差别</li>
+<li>我们观察自己怎样做的时候，通常不能推断行为的原因</li>
+<li>因为行为的观察和行为的产生是分开的</li>
+</ul>
+<h3 id="人机交互的重要性"><strong>人机交互的重要性</strong>：</h3>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/QtBeoDX.png" alt="image-20231230160301969" loading="lazy"></figure>
+<h3 id="人机交互相关领域">人机交互相关领域</h3>
+<ul>
+<li>用户界面设计，用户体验设计，可用性工程，人因工程学，认知心理学，计算机科学</li>
+</ul>
+<h3 id="人机交互的发展历史">人机交互的发展历史</h3>
+<p>批处理阶段-&gt;命令行终端-&gt;GUI图形界面 -&gt;多通道用户界面（未来）</p>
+<p>旧的交互形式作为特例保存下来，如命令行仍然在使用。不是后面的阶段出现前面的阶段就消失了</p>
+<p>图形界面不再依赖记忆识别，而是依赖识别，降低记忆负担。特征：直接操纵</p>
+<p>第一个“所见即所得”的文字处理软件—Bravo</p>
+<p>sketchpad为图形界面鼻祖</p>
+<p>下一代界面的主要风格将是没有命令的用户界面</p>
+<ul>
+<li>由更多的媒体类型来构成更高的信息维度</li>
+<li>交互也将高度便携和个性化</li>
+</ul>
+<h3 id="人机交互与软件工程的关系">人机交互与软件工程的关系</h3>
+<ul>
+<li>前者是对后者的促进和补充，关系类似建筑师和土木工程师，并不是相互独立的</li>
+<li>两者结合存在许多困难</li>
+</ul>
+<h2 id="人机交互的基础知识">人机交互的基础知识</h2>
+<h3 id="交互框架">交互框架</h3>
+<p>作用：</p>
+<ol>
+<li>提供理解或定义事物的一种结构</li>
+<li>为人们进行交互设计提供结构化框架</li>
+<li>认识设计过程中的问题</li>
+<li>定义问题涉及的领域</li>
+</ol>
+<img src="https://i.imgur.com/BtQIs94.png" alt="image-20231230163843859" style="zoom:50%;" />
+<p>执行/评估活动周期<strong>EEC</strong>(Execution-Evaluation Cycle)</p>
+<ul>
+<li>最有影响力的框架</li>
+<li>定义了活动的四个组成部分
+<ul>
+<li>目标(Goal) ≠意图(Intention)</li>
+<li>执行(Execution)</li>
+<li>客观因素(World)</li>
+<li>评估(Evaluation)</li>
+</ul>
+</li>
+</ul>
+<p>执行隔阂、评估隔阂能够解释为什么有的界面使用存在问题</p>
+<ul>
+<li>执行隔阂：用户为达目标而制定的动作与系统允许的动作之间的差别</li>
+<li>评估隔阂：系统状态的实际表现与用户预期之间的差别</li>
+</ul>
+<p>意义：</p>
+<ol>
+<li>如何才能够使用户简单地确定哪些活动是被允许的？</li>
+<li>如何确定系统是否处于期望的运行状态等问题？</li>
+</ol>
+<h3 id="交互形式">交互形式</h3>
+<p>命令行交互、菜单驱动、基于表格、直接操纵、隐喻、问答、自然语言交互</p>
+<ul>
+<li>不一定必须图形界面，可以有手势、触觉、虚拟技术</li>
+</ul>
+<h3 id="信息处理模型">信息处理模型</h3>
+<h4 id="人类处理机模型大头娃娃模型很重要">人类处理机模型（大头娃娃模型）<mark>很重要</mark></h4>
+<ul>
+<li>感知处理器：信息将被输出到声音存储和视觉存储区域</li>
+<li>认知处理器：输入将被输出到工作记忆</li>
+<li>动作处理器：执行动作</li>
+</ul>
+<p>存在的问题</p>
+<ul>
+<li>把认知过程描述为<strong>一系列处理步骤</strong></li>
+<li>仅关注<strong>单个人和单个任务</strong>的执行过程
+<ul>
+<li>忽视了复杂操作执行中人与人之间及任务与任务之间的互动</li>
+</ul>
+</li>
+<li>忽视了<strong>环境和其他人</strong>可能带来的影响</li>
+</ul>
+<h4 id="格式塔心理学完形心理学和指导意义">格式塔心理学（完形心理学）和指导意义</h4>
+<p>用户在感知事物的时候总是尽可能视为“好“的范式</p>
+<p>相近性原则：空间上比较靠近的物体容易被视为整体</p>
+<ul>
+<li>设计界面时，应按照<strong>相关性</strong>对组件进行分组</li>
+<li>
+<img src="https://i.imgur.com/dkAWppx.png" alt="image-20231230171922269" style="zoom:33%;" />
+</li>
+<li>
+<img src="https://i.imgur.com/xZK2hiC.png" alt="image-20231230171942557" style="zoom: 50%;" />
+</li>
+</ul>
+<p>相似性原则：人们习惯将看上去相似的物体看成一个整体</p>
+<ul>
+<li><strong>功能相近</strong>的组件应该使用相同或相近的表现形式</li>
+<li>
+<img src="https://i.imgur.com/34XKQrP.png" alt="image-20231230172007695" style="zoom:50%;" />
+</li>
+<li>
+<img src="https://i.imgur.com/6t70AZg.png" alt="image-20231230172016647" style="zoom:50%;" />
+</li>
+</ul>
+<p>连续性原则：共线或具有相同方向的物体会被组合在一起</p>
+<ul>
+<li>将组件对齐，更有助于增强用户的主观感知效果</li>
+<li>
+<img src="https://i.imgur.com/1DXNoHU.png" alt="image-20231230172035005" style="zoom:50%;" />
+</li>
+</ul>
+<p>对称性原则：相互对称且能够组合为有意义单元的物体会被组合在一起</p>
+<ul>
+<li>如三组中括号，并不遵从相近性</li>
+<li>
+<img src="https://i.imgur.com/KU1CjxD.png" alt="image-20231230172049066" style="zoom:50%;" />
+</li>
+</ul>
+<p>完整性和闭合性原则：人们倾向于忽视轮廓的间隙而将其视作一个完整的整体</p>
+<ul>
+<li>页面上的空白可帮助实现分组</li>
+<li><img src="https://i.imgur.com/Wjm1oh3.png" alt="image-20231230172058068" loading="lazy"></li>
+</ul>
+<p>前景和背景：前景和背景可以在某些情况下互换</p>
+<ul>
+<li>整体区别于局部</li>
+<li><img src="https://i.imgur.com/2tIwCpZ.png" alt="image-20231230172109422" loading="lazy"></li>
+</ul>
+<p>考试可能给个案例，如何用格式塔心理学去解释应用到的原则</p>
+<p>格式塔心理学反例：对比</p>
+<h3 id="记忆特性">记忆特性</h3>
+<figure data-type="image" tabindex="4"><img src="https://i.imgur.com/z0Xw3e6.png" alt="image-20231230173641101" loading="lazy"></figure>
+<p><mark>考点</mark>：记忆特性——三层记忆结构、各有什么特点。谁的记忆有限、会遗忘、有时效</p>
+<p>感觉记忆（瞬时记忆）</p>
+<ul>
+<li>在人脑中持续约为1秒钟</li>
+<li>帮助我们把相继出现的一组图片组合成一个连续的图像序列，产生动态的影像信息</li>
+</ul>
+<p>短时记忆（工作记忆）</p>
+<ul>
+<li>感觉记忆经编码后形成</li>
+<li>约保持30秒</li>
+<li>储存的是当前正在使用的信息，是信息加工系统的核心，可理解为计算机的内存</li>
+<li>短时记忆的存储能力约为7±2个信息单元，容量是有限的</li>
+</ul>
+<p>长时记忆</p>
+<ul>
+<li>
+<p>短时记忆中的信息经进一步加工后会变为长时记忆</p>
+</li>
+<li>
+<p>只有与长时记忆区的信息具有某种联系的新信息才能够进入长时记忆</p>
+</li>
+<li>
+<p>长时记忆的信息容量几乎是无限的</p>
+</li>
+<li>
+<p>启发</p>
+<ul>
+<li>注意使用线索来引导用户完成特定任务</li>
+<li>在追求独特的创新设计时也应注重结合优秀的交互范型</li>
+</ul>
+</li>
+<li>
+<p>遗忘</p>
+<ul>
+<li>长时记忆中的信息有时是无法提取，不代表长时记忆区的信息丢失了</li>
+<li>失去信息提取的途径，或原有信息受到了干扰，导致新信息代替了旧信息</li>
+</ul>
+</li>
+<li>
+<p>易出错</p>
+<ul>
+<li>“人为错误”被定义为“人未发挥自身所具备的功能而产生的失误，它可能降低交互系统的功能”</li>
+<li>表面上看是由于用户的误解、误操作或一时大意，实际上大部分交互问题都源于系统设计本身</li>
+</ul>
+</li>
+</ul>
+<h2 id="交互设计目标与原则">交互设计目标与原则</h2>
+<h3 id="可用性目标">可用性目标：</h3>
+<ul>
+<li>易学性、易记性、安全性、高效率、效用性</li>
+<li>提供评估产品和用户体验的方法</li>
+</ul>
+<h3 id="用户体验目标">用户体验目标：</h3>
+<p>主观评价标准，表示用户在使用产品或服务时的情绪和感受</p>
+<p>可用性是人为划分出来的客观的部分，用户体验是主观的部分。但实际上两者都有主观和客观的部分。</p>
+<p>可用性目标和用户体验目标的矛盾性：</p>
+<ul>
+<li>许多玩家喜欢找最具挑战、非简单的游戏：违反可用性</li>
+<li>用塑料锤砸屏幕上的地鼠较用鼠标点击更费劲且更易出错，但会带来一个更愉快和有趣的体验</li>
+</ul>
+<p>有些可用性和用户体验目标是不兼容的：如设计一个既安全又有趣的过程控制系统可能是不可能或不可取的</p>
+<h3 id="简易可用性工程">简易可用性工程</h3>
+<ul>
+<li>特点：以提高产品可用性为目标，借鉴了不同领域的方法和技术，强调以人为中心来进行产品设计和研发</li>
+<li>四种主要技术：
+<ol>
+<li>用户和任务观察：了解目标用户，直接与潜在用户接触</li>
+<li>场景：简单的原型工具，包括水平原型和垂直原型</li>
+<li>简化的边做边说：最有价值的单个可用性工程方法，了解用户行为的原因。提示用户或事先观摩</li>
+<li>启发式评估：能发现很多可用性问题，剩下的通过边做边说来发现</li>
+</ol>
+</li>
+<li>常用度量方法
+<ul>
+<li>选择一些能够代表目标用户群体的测试用户</li>
+<li>让这些用户使用系统执行一组预定的任务</li>
+<li>比较任务的执行情况</li>
+<li>针对多维属性
+<ul>
+<li>取每个可用性属性的平均值</li>
+<li>查看整体分布情况</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>以人为中心和以用户为中心有什么区别？</p>
+<ul>
+<li>&quot;以人为中心&quot;更加强调人的整体体验和人性化设计，而&quot;以用户为中心&quot;更加关注于满足特定用户群体的具体需求。(By ChatGPT)</li>
+</ul>
+<h3 id="交互设计原则">交互设计原则</h3>
+<ul>
+<li>
+<p>基本原则：可学习性、灵活性、健壮性</p>
+</li>
+<li>
+<p>十条启发式原则</p>
+<ol>
+<li>系统状态的可见度</li>
+<li>系统和现实世界的吻合</li>
+<li>用户享有控制权和自主权</li>
+<li>一致性和标准化</li>
+<li>避免出错</li>
+<li>依赖识别而非记忆</li>
+<li>使用的灵活性和高效性</li>
+<li>帮助用户识别、诊断和恢复错误</li>
+<li>帮助和文档</li>
+<li>审美感和最小化设计</li>
+</ol>
+</li>
+<li>
+<p>黄金原则：减轻短时记忆负担可以对应上述启发式原则的4 6 9 10</p>
+</li>
+<li>
+<div style="color:red">七项原理</div>
+</li>
+</ul>
+<div style="color:red">设计过程取消掉了（这是指的交互设计框架吗？ 答：No</div>
+<h2 id="交互式系统的需求">交互式系统的需求</h2>
+<h3 id="产品特性">产品特性</h3>
+<figure data-type="image" tabindex="5"><img src="https://i.imgur.com/qC0ANf2.png" alt="image-20240101210410797" loading="lazy"></figure>
+<h3 id="用户特性">用户特性</h3>
+<figure data-type="image" tabindex="6"><img src="https://i.imgur.com/iRlLj9j.png" alt="image-20240101210717397" loading="lazy"></figure>
+<h3 id="用户建模">用户建模</h3>
+<p>人物角色（往年考过，分析人物角色设计的问题）</p>
+<ul>
+<li>不是真实的人</li>
+<li>是基于观察到的那些真实人的行为和动机，并且在整个设计过程中代表真实<br>
+的人</li>
+<li>是在人口统计学调查收集到的实际用户的行为数据的基础上形成的综合原型</li>
+</ul>
+<p>人物角色的作用：解决3个设计问题</p>
+<ul>
+<li>弹性用户</li>
+<li>自参考设计</li>
+<li>边缘情况设计</li>
+</ul>
+<figure data-type="image" tabindex="7"><img src="https://i.imgur.com/jbPJ9GK.png" alt="image-20240102182234046" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://i.imgur.com/E2Ul5ZG.png" alt="image-20240101211215610" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://i.imgur.com/X1GAN3w.png" alt="image-20240101214427345" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://i.imgur.com/DoLxkLE.png" alt="image-20240101214436699" loading="lazy"></figure>
+<p>需求分析：HTA（Hierarchical task analysis）层次化任务分析，如图书馆目录服务、安排会议</p>
+<p>原型通常用低保真：简单、快速、便宜、易于制作和修改</p>
+<h2 id="交互式系统的设计">交互式系统的设计</h2>
+<p>设计框架：</p>
+<ol>
+<li>定义外形因素和输入方法（回想人物角色和情景剧本）</li>
+<li>定义功能和数据元素</li>
+<li>决定功能组合层次</li>
+<li>勾画大致的设计框架 方块图</li>
+<li>构建关键情景场景剧本 描述了人物角色最频繁的使用界面，必须在细节上演进地描述每个主要交互的精确行为，并提供主要线路的走查</li>
+<li>通过验证性的场景剧本来检查设计 不用具备很多细节</li>
+</ol>
+<p>设计中的折衷：</p>
+<ol>
+<li>个性化和配置 是否让用户有定制功能</li>
+<li>本地化和国际化</li>
+<li>审美学和实用性</li>
+</ol>
+<p>软件设计中的考虑：</p>
+<ol>
+<li>让软件体贴</li>
+<li>加快系统响应时间</li>
+<li>减少用户记忆负担</li>
+<li>减少用户的等待感</li>
+<li>设计良好的出错信息</li>
+</ol>
+<p>交互设计模式</p>
+<ol>
+<li>模式在HCI中的应用还处于起步阶段</li>
+<li>模式捕捉的只是良好设计中不变的特性
+<ol>
+<li>具体实现，将取决于环境和设计者的创造性</li>
+</ol>
+</li>
+<li>模式不是拿来即用的商品，每一次模式的运用都有所不同</li>
+</ol>
+<p>简化交互设计策略：</p>
+<ul>
+<li>删除：<strong>最明显</strong>的简化设计方法，删除杂乱特性，交付有价值的功能
+<ul>
+<li>不要删减过多，不违反用户享有控制权和自主权的原则</li>
+</ul>
+</li>
+<li>组织：<strong>最快捷</strong>
+<ul>
+<li>分块：7±2原则</li>
+<li>明确的分类标准</li>
+</ul>
+</li>
+<li>隐藏：<strong>低成本</strong>
+<ul>
+<li>作为删除不必要功能的开始</li>
+<li>主流用户很少使用，但是需要更新</li>
+</ul>
+</li>
+<li>转移
+<ul>
+<li>在设备间转移</li>
+<li>向用户转移</li>
+</ul>
+</li>
+</ul>
+<h2 id="交互设计的模型与理论">交互设计的模型与理论</h2>
+<h3 id="goms模型">GOMS模型</h3>
+<p>基于人类处理机模型，采用“分而治之”的思想，将任务进行多层次的细化</p>
+<p>Goals, operation, methods and selection rules</p>
+<h3 id="klmkeystroke-level-model击键层次模型">KLM（Keystroke Level Model）击键层次模型</h3>
+<p>对用户执行情况进行<strong>量化预测</strong>，仅涉及任务性能的<strong>时间</strong>方面</p>
+<figure data-type="image" tabindex="11"><img src="https://i.imgur.com/ewdi9R8.png" alt="image-20240102201427511" loading="lazy"></figure>
+<p>没有考虑错误、学习性、功能性、回忆、疲劳、专注程度、可接受性</p>
+<h3 id="fitts定律">Fitts定律</h3>
+<p>预测使用某种定位设备指向某个目标的时间</p>
+<p>最健壮并被广泛采用的人类运动模型之一</p>
+<h4 id="公式">公式</h4>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>D</mi><mo>=</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo>(</mo><mfrac><mi>A</mi><mi>W</mi></mfrac><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">ID=log_2(\frac{A}{W}+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>，困难指数，单位：比特，A是设备到目标的距离，W是目标宽度</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>T</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mtext> </mtext><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo>(</mo><mfrac><mi>A</mi><mi>W</mi></mfrac><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">MT=a+b\ log_2(\frac{A}{W}+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord mathdefault">b</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>，平均时间，单位：秒或毫秒，a和b来自实验数据的线性回归，通常取50ms和150ms</p>
+<h4 id="建议">建议</h4>
+<ul>
+<li>大目标、小距离具有优势</li>
+<li>屏幕元素应该尽可能多的占据屏幕空间</li>
+<li>最好的像素是光标所处的像素</li>
+<li>屏幕元素应尽可能利用屏幕边缘的优势</li>
+<li>大菜单，如饼型菜单，比其他类型的菜单使用简单</li>
+</ul>
+<h2 id="评估的基础知识重点-占13">评估的基础知识（重点 <mark>占1/3</mark>）</h2>
+<h4 id="评估目的">评估目的：</h4>
+<ul>
+<li><strong>了解用户或用户组在特定环境中，使用产品执行特定任务的情况。</strong></li>
+<li><strong>评估特定用户在一个特定的环境背景中如何使用一个系统来执行一个特定的任务。</strong></li>
+</ul>
+<h4 id="评估原则">评估原则：</h4>
+<ul>
+<li><strong>应该依赖于产品的用户</strong>：与专业技术人员水平和技术有关；</li>
+<li><strong>要选择有广泛代表性的用户</strong>：参加测试的人必须具有代表性</li>
+<li><strong>应在用户的实际工作任务和操作环境下进行</strong>：根据用户完成任务的结果，进行客观的分析和评估；</li>
+<li><strong>评估与设计应结合进行</strong>：仅靠用户最后对产品的一两次评估，不能全面反映软件可用性；</li>
+</ul>
+<p>评估范型：</p>
+<ul>
+<li>快速评估、可用性测试、实地研究、预测性评估</li>
+</ul>
+<p>评估技术：</p>
+<ul>
+<li>观察用户、询问用户意见、征求专家意见、用户测试、基于模型的分析评估</li>
+</ul>
+<p>评估方法：</p>
+<ul>
+<li>启发式评估、边做边说、观察、问卷调查、访谈、焦点小组、可用性测试</li>
+</ul>
+<p>实证研究方法：</p>
+<ol>
+<li>零假设和备择假设</li>
+<li>自变量和因变量</li>
+<li>组间设计和组内设计</li>
+<li>实验设计</li>
+</ol>
+<p>DECIDE评估框架</p>
+<ol>
+<li>确定目标</li>
+<li>发掘问题</li>
+<li>确定评估范型和技术</li>
+<li>明确具体问题</li>
+<li>处理道德问题</li>
+<li>评估、解释和处理数据</li>
+</ol>
+<p>用户测试步骤：</p>
+<ol>
+<li>定义目标和问题</li>
+<li>选择参与者</li>
+<li>设计测试任务</li>
+<li>明确测试步骤</li>
+<li>搜集、分析数据</li>
+<li>总结报告</li>
+</ol>
+<p><strong>考核的是如何组织一个实验</strong></p>
+<p><mark>小规模试验</mark>的重要性，要有试验的意识，验证试验的完备性。一定要提一句</p>
+<h2 id="询问用户和专家">询问用户和专家</h2>
+<p>启发式评估和用户测试最重要，会考大题，像访谈和观察会考小题目</p>
+<p>问卷调查</p>
+<h2 id="以用户为中心">以用户为中心</h2>
+<p>重要性：</p>
+<ol>
+<li>更好理解用户的需求</li>
+<li>“期望管理”：确保用户对新产品的看法和期望是切实的，保证不会出乎用户意料</li>
+<li>“拥有权”：用户在开发过程中能够感受到自己对产品有贡献，更容易接受最终产品。</li>
+</ol>
+<p>形式：</p>
+<ol>
+<li>用户成为设计组成员，作为主要贡献者</li>
+<li>用户通过接收邮件的形式获取项目进展信息，再以专题讨论的形式参与开发过程</li>
+<li>如果存在大量用户，可以采用折中的方法，用户组代表以全职形式参与设计组，其他用户参与专题讨论</li>
+</ol>
+<p>上下文询问法：观察并和用户交流比仅仅观察的效果好</p>
+<ol>
+<li>上下文环境：研究人员深入工作空间，在正常工作环境或其他合适环境</li>
+<li>伙伴关系：研究人员和用户应相互合作</li>
+<li>解释：对数据的解释非常重要，会影响将来的决定</li>
+<li>焦点：把问题集中在研究问题上</li>
+</ol>
+<p>正确看待以用户为中心：</p>
+<ul>
+<li>优点
+<ol>
+<li>改进不良设计，保证产品正常工作，人们正常使用</li>
+</ol>
+</li>
+<li>缺点：
+<ol>
+<li>影响产品的创新性</li>
+<li>目标宏大但是受到时间、预算和任务规模的限制</li>
+<li>忽视了人的主观能动性和对技术的适应能力</li>
+</ol>
+</li>
+</ul>
+<p>以活动为中心的设计，把用户的“活动”当作关注对象</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[卸载流氓软件——搜狗输入法]]></title>
+        <id>https://estarpro1022.github.io/post/xie-zai-liu-mang-ruan-jian-sou-gou-shu-ru-fa/</id>
+        <link href="https://estarpro1022.github.io/post/xie-zai-liu-mang-ruan-jian-sou-gou-shu-ru-fa/">
+        </link>
+        <updated>2023-12-29T11:32:53.000Z</updated>
+        <content type="html"><![CDATA[<p>正上着课呢，突然发现光标右上角的圈一直在转，而且固定频率闪，就很神奇。<br>
+趁着老师休息的工夫，赶紧重启电脑，看看啥个情况。重启后似乎好了，不过神奇的是，在点击工具栏后，语言输入法自动切换到了搜狗输入法，并且右上角的圈圈又开始转动了，这就很有问题了。<br>
+在网上搜索一番后，发现是搜狗输入法搞的鬼。<a href="https://www.zhihu.com/question/265982937">Win10系统鼠标指针旁边的后台运行小圆圈⭕️一直在闪烁转圈！？</a><br>
+本来正考虑换回微软自带输入法呢，这样登录控制台时默认是英文。这下搜狗的搞破坏直接加速了这次删除行动。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[电脑鼠标操纵投屏到电脑上的安卓手机画面]]></title>
+        <id>https://estarpro1022.github.io/post/dian-nao-shu-biao-cao-zong-tou-ping-dao-dian-nao-shang-de-an-zhuo-shou-ji-hua-mian/</id>
+        <link href="https://estarpro1022.github.io/post/dian-nao-shu-biao-cao-zong-tou-ping-dao-dian-nao-shang-de-an-zhuo-shou-ji-hua-mian/">
+        </link>
+        <updated>2023-12-16T18:16:28.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="背景">背景</h1>
+<p>有些视频链接只能在微信小程序打开，在电脑上直接打开会显示错误信息。但是手机视频画面小、进度条不好拖动等问题影响体验，自带录屏用起来也麻烦，于是就想着把安卓手机的屏幕投放到电脑上，并且能用鼠标拖拽进度条、在电脑上录视频。</p>
+<h1 id="尝试">尝试</h1>
+<h2 id="微软自带投屏失败">微软自带投屏（失败）</h2>
+<ol>
+<li>选择“<strong>开始</strong>”&gt;“<strong>设置</strong>”&gt;“<strong>系统</strong>”&gt;“<strong>投影到此电脑</strong>”。</li>
+<li>在“<strong>添加‘无线显示器’可选功能投影到此电脑</strong>”下，选择“<strong>可选功能</strong>”。</li>
+<li>选择“<strong>添加功能</strong>”，然后输入“无线显示器”。</li>
+<li>从结果列表中选中“<strong>无线显示器</strong>”旁边的复选框，然后选择“<strong>安装</strong>”。</li>
+<li>安装“无线显示器”后，在“设置”中的“<strong>投影到此电脑</strong>”页面上管理你的投影偏好设置。</li>
+<li>在要投影到的电脑上的任务栏的搜索框中输入“Connect 应用”，然后在结果列表中选择“<strong>Connect</strong>”来启动 Connect 应用。</li>
+<li>在进行投影的设备上，转到屏幕镜像设置（有时称为投放设置），然后选择电脑进行连接。 如果是从电脑投影，则还可以选择 <strong>Windows 徽标键</strong> + <strong>K</strong> 并选择要连接到的电脑。</li>
+</ol>
+<p>参考：<a href="https://support.microsoft.com/zh-cn/windows/%E5%B1%8F%E5%B9%95%E9%95%9C%E5%83%8F%E5%92%8C%E6%8A%95%E5%BD%B1%E5%88%B0%E7%94%B5%E8%84%91-5af9f371-c704-1c7f-8f0d-fa607551d09c#:~:text=%E9%80%89%E6%8B%A9%E2%80%9C%E5%BC%80%E5%A7%8B%E2%80%9D%3E%E2%80%9C%E8%AE%BE%E7%BD%AE,%EF%BC%8C%E7%84%B6%E5%90%8E%E9%80%89%E6%8B%A9%E2%80%9C%E5%AE%89%E8%A3%85%E2%80%9D%E3%80%82">Win10-屏幕镜像和投影到电脑</a></p>
+<p>失败原因：只能实现手机投屏到电脑，但是电脑的鼠标、键盘都用不了，还是得操作手机</p>
+<h2 id="scrcpy成功">Scrcpy（成功）</h2>
+<p>直到发现了这篇文章-<a href="https://zhuanlan.zhihu.com/p/590343540">手机投屏到电脑，可用鼠标键盘反向操作手机 方法Scrcpy</a></p>
+<p><a href="https://jingyan.baidu.com/article/27fa73265134c307f9271f35.html">开启OPPO的开发者选项</a>、打开USB调试后，直接把数据线将电脑和手机联通起来</p>
+<p>各系统的使用方法：<a href="https://www.iplaysoft.com/scrcpy.html">使用Scrcpy 显示手机画面并控制手机</a></p>
+<p>然而有点小问题，<strong>录制屏幕</strong>选项需要在连接设备前设置好，在设备启动后直接开始录屏。中间不能暂停、停止录制，功能比较鸡肋，并且录制的.mp4视频看不了？最后还是用bandicam录了</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[linux用户和用户组管理]]></title>
+        <id>https://estarpro1022.github.io/post/linux-yong-hu-he-yong-hu-zu-guan-li/</id>
+        <link href="https://estarpro1022.github.io/post/linux-yong-hu-he-yong-hu-zu-guan-li/">
+        </link>
+        <updated>2023-12-16T17:46:47.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="管理-查询用户信息">管理、查询用户信息</h1>
+<p>Linux 将用户账号、密码等相关的信息分别存储在四个文件夹下：</p>
+<ul>
+<li>/etc/passwd —— 管理用户UID/GID重要参数</li>
+<li>/etc/shadow —— 管理用户密码</li>
+<li>/etc/group —— 管理用户组相关信息</li>
+<li>/etc/gshadow —— 管理用户组管理员相关信息</li>
+</ul>
+<p><strong>user</strong></p>
+<ul>
+<li><code>groups &lt;user&gt;</code>：打印用户所在的用户组</li>
+<li><code>members &lt;group&gt;</code>：打印用户组的成员</li>
+<li><code>id &lt;user&gt;</code>：输出用户uid、gid、groups信息，gid是primary group的标识</li>
+</ul>
+<pre><code class="language-shell">root@mobile-server:~# cat /etc/passwd | grep zxt
+zxt:x:1000:1000::/home/zxt:/bin/bash
+root@mobile-server:~# groups zxt  # 
+zxt : zxt mobile
+root@mobile-server:~# members mobile
+zxt hsh
+root@mobile-server:~# id zxt
+uid=1000(zxt) gid=1000(zxt) groups=1000(zxt),1002(mobile)
+</code></pre>
+<p><strong>group</strong></p>
+<ul>
+<li><code>getent group </code>：查看所有用户组</li>
+<li><code>getent group {{group_name}}</code>：查看指定用户组的成员</li>
+</ul>
+<pre><code class="language-shell">root@mobile-server:~# getent group mobile
+mobile:x:1002:zxt,hsh
+</code></pre>
+<ul>
+<li><code>newgrp {{group_name}}</code>：修改当前用户的主用户组</li>
+</ul>
+<pre><code class="language-shell">zxt@mobile-server:~$ id
+uid=1000(zxt) gid=1000(zxt) groups=1000(zxt),1002(mobile)
+zxt@mobile-server:~$ newgrp mobile 
+zxt@mobile-server:~$ id
+uid=1000(zxt) gid=1002(mobile) groups=1002(mobile),1000(zxt)
+</code></pre>
+<h1 id="添加用户">添加用户</h1>
+<p><code>adduser</code>的交互性更强，而<code>useradd</code>需显式指定主目录、shell。推荐使用</p>
+<blockquote>
+<p>useradd is a low level utility for adding users. On Debian, administrators should usually use adduser(8) instead.</p>
+</blockquote>
+<p>创建新用户后，需要<code>vim /etc/sudoers</code>为新用户创建sudo权限</p>
+<pre><code class="language-shell">root    ALL=(ALL:ALL) ALL
+zxt     ALL=(ALL:ALL) ALL
+</code></pre>
+<p><code>su {{username}}</code>就可以切换当前用户</p>
+<p>参考：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/105482468">一篇读懂 Linux 用户管理与操作</a></li>
+<li><a href="https://kb.iu.edu/d/adwf">Find a user's UID or GID in Unix</a></li>
+<li><a href="https://www.cyberciti.biz/faq/understanding-etcgroup-file/">Understanding /etc/group File in Linux</a></li>
+<li><a href="https://serverfault.com/questions/605812/etc-passwd-shows-user-in-a-group-but-etc-group-does-not">/etc/passwd shows user in a group, but /etc/group does not</a></li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SVM develop note]]></title>
+        <id>https://estarpro1022.github.io/post/svm-develop-note/</id>
+        <link href="https://estarpro1022.github.io/post/svm-develop-note/">
+        </link>
+        <updated>2023-12-15T15:55:31.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="numpy">numpy</h2>
+<p>docs: <a href="https://www.numpy.org.cn/user/quickstart.html">NumPy快速入门教程-中文</a></p>
+<p>用于科学计算、图像处理的包，默认数据类型为float64</p>
+<h3 id="属性">属性</h3>
+<pre><code class="language-python">&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; np.array([1, 2, 3])
+array([1, 2, 3])
+&gt;&gt;&gt; a = np.array([[1, 2, 3], [3, 4, 5]], dtype=np.int32)	# 指定数组元素数据类型
+array([[1, 2, 3],
+       [3, 4, 5]])
+&gt;&gt;&gt; a.shape	# 数组维度
+(2, 3)
+&gt;&gt;&gt; a.ndim	# 数组维度个数，即len(a.shape)
+2
+&gt;&gt;&gt; a.size	# shape所有数相乘
+6
+&gt;&gt;&gt; a.dtype	# 元素的数据类型
+dtype('int32')
+&gt;&gt;&gt; a.astype(np.float64)	# 返回元素类型为float64的新数组
+array([[1., 2., 3.],
+       [3., 4., 5.]])
+</code></pre>
+<h3 id="创建数组">创建数组</h3>
+<pre><code class="language-python">&gt;&gt;&gt; np.array([1, 2, 3])
+array([1, 2, 3])
+&gt;&gt;&gt; np.zeros([2, 3])	# 等价于np.zeros(6).reshape(2, 3)
+array([[0., 0., 0.],
+       [0., 0., 0.]])
+&gt;&gt;&gt; zeros = np.zeros([2, 3])
+&gt;&gt;&gt; zeros.dtype == np.float64	# 默认类型float64
+True
+&gt;&gt;&gt; np.arange(0, 5, 1)  # [0, 5)
+array([0, 1, 2, 3, 4])
+&gt;&gt;&gt; 
+&gt;&gt;&gt; from numpy import pi
+&gt;&gt;&gt; x = np.linspace(0, 2 * pi, 100)	# 100个均匀分布在[0, 2 * pi]的float64类型的数
+&gt;&gt;&gt; np.sin(x)  # 对每个元素做sin处理
+array([ 0.00000000e+00,  6.34239197e-02,  1.26592454e-01,  1.89251244e-01,
+        2.51147987e-01,  3.12033446e-01,  3.71662456e-01,  4.29794912e-01,
+       	......................省略......................
+        -1.89251244e-01, -1.26592454e-01, -6.34239197e-02, -2.44929360e-16])
+</code></pre>
+<h3 id="处理图像">处理图像</h3>
+<p>下载依赖：<code>conda install pillow</code></p>
+<pre><code class="language-python">from PIL import Image
+import numpy as np
+
+image = Image.open('photo.jpg')
+image = np.array(image)	# 转为numpy数组
+print(image.shape, image.size, image.dtype)	# (1706, 1280, 3) 6551040 uint8
+
+# 提取红色像素点
+image_red = image[:, :, 0]
+# Image.fromarray(image_red).show()
+
+# 重叠两张图片 重叠的部分大小要一致
+im_a = np.array(Image.open('a.png'))
+im_b = np.array(Image.open('b.png'))
+combine = im_a[0:500, 0:400, :] * 0.5 + im_b[0:500, 0:400, :] * 0.5
+combine = combine.astype(np.uint8)
+# Image.fromarray(combine).show()
+
+# 左右反转图片
+image_flip = image[:, ::-1, :]
+# Image.fromarray(image_flip).show()
+</code></pre>
+<h2 id="svm">SVM</h2>
+<p>docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">sklearn.svm.SVC</a></p>
+<p>实现简单的二分类器，并找到支持向量和超平面</p>
+<pre><code class="language-python"># 训练SVM模型
+clf = svm.SVC(kernel='linear')
+clf.fit(X, Y)
+
+support_vectors = clf.support_vectors_
+coef = clf.coef_[0]
+intercept = clf.intercept_
+k = -coef[0] / coef[1]  # 直线斜率
+b = -intercept[0] / coef[1]  # 直线截距
+</code></pre>
+<p>参考：<a href="http://t.csdnimg.cn/xclZU">利用sklearn.svm分类后如何画出超平面</a></p>
+<h2 id="matplotlib绘图">matplotlib绘图</h2>
+<p>下载依赖：<code>conda install matplotlib</code>（在虚拟环境中下载）</p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+
+x_coordinates = [1, 2, 3]
+y_coordinates = [2, 4, 6]
+plt.plot(x_coordinates, y_coordinates)  # 拟合线条
+plt.show()	# 绘图
+
+# plt.scatter(x_coordinates, y_coordinates)  # 绘制散点图
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/MxaRsUX.png" alt="image-20231215113734552" loading="lazy"></figure>
+<p>注意：</p>
+<ul>
+<li>取消勾选“Show plots in tool window“
+<ul>
+<li>reference: <a href="https://stackoverflow.com/questions/49048520/how-to-prevent-pycharm-from-overriding-default-backend-as-set-in-matplotlib">How to prevent PyCharm from overriding default backend as set in matplotlib?</a></li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/LhBwKoz.png" alt="image-20231215113425667" loading="lazy"></figure>
+<h2 id="python-basic">python basic</h2>
+<pre><code class="language-python">&gt;&gt;&gt; type(&quot;123&quot;) == str	# not &quot;str&quot;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows的Powershell输入命令conda activate报错，并且环境名不显示]]></title>
+        <id>https://estarpro1022.github.io/post/windows-de-powershell-shu-ru-ming-ling-conda-activate-bao-cuo-bing-qie-huan-jing-ming-bu-xian-shi/</id>
+        <link href="https://estarpro1022.github.io/post/windows-de-powershell-shu-ru-ming-ling-conda-activate-bao-cuo-bing-qie-huan-jing-ming-bu-xian-shi/">
+        </link>
+        <updated>2023-12-13T08:51:26.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="问题1">问题1</h2>
+<p>机器学习作业需要用到anaconda，然而在打开终端，输入<code>conda activate pytorch</code>后报错</p>
+<pre><code class="language-shell">$ conda activate pytorch
+usage: conda-script.py [-h] [-v] [--no-plugins] [-V] COMMAND ...
+conda-script.py: error: argument COMMAND: invalid choice: 'activate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'build', 'content-trust', 'convert', 'debug', 'develop', 'doctor', 'index', 'inspect', 'metapackage', 'render', 'repoquery', 'skeleton', 'verify', 'env', 'repo', 'token', 'pack', 'server')
+</code></pre>
+<h3 id="探究">探究</h3>
+<ol>
+<li>系统变量添加了<code>D:\software\Anaconda</code>，<code>D:\software\Anaconda\Scripts</code>，<code>D:\software\Anaconda\Library\bin</code>，没问题</li>
+<li><a href="https://stackoverflow.com/questions/77376509/why-i-am-not-able-to-use-conda-activate-command">Why I am not able to use &quot;conda activate&quot; command in git bash?</a> 中提到解决方案<code>conda init bash</code>然后重启bash，即可在git bash中使用<code>conda activate &lt;env_name&gt;</code></li>
+<li>对于conda版本小于4.4，有的解答使用<code>activate &lt;env_name&gt;</code>激活对应环境</li>
+</ol>
+<h3 id="解决方法">解决方法</h3>
+<p><code>conda init cmd.exe</code>和<code>conda init powershell</code>（管理员模式下运行）</p>
+<p><a href="https://stackoverflow.com/a/71092431/17627011">solution: conda init powershell has no effect</a> 提到<code>C:\Users\&lt;username&gt;\Documents\WindowsPowerShell\profile.ps1&quot;</code>需要包含以下文件内容</p>
+<ul>
+<li>注意<code>Anaconda</code>路径</li>
+</ul>
+<pre><code class="language-powershell">#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+(&amp; &quot;D:\software\Anaconda\Scripts\conda.exe&quot; &quot;shell.powershell&quot; &quot;hook&quot;) | Out-String | Invoke-Expression
+#endregion
+</code></pre>
+<p>在<code>conda init powershell</code>后，<code>profile.ps1</code>的原有内容并没有修改，导致powershell启动时出现如下错误。后经检查发现Anaconda的路径变了，但是init并没有改变修改后的Anaconda路径。</p>
+<pre><code>&amp; : 无法将“D:\Anaconda\Scripts\conda.exe”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如
+果包括路径，请确保路径正确，然后再试一次。
+...
+</code></pre>
+<h2 id="问题2">问题2</h2>
+<p>conda的虚拟环境名并没有加载</p>
+<h3 id="探究-2">探究</h3>
+<ol>
+<li>在git bash中<code>conda init bash</code>并<strong>重启bash</strong>后就好了</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/o8aTjEv.png" alt="image-20231213164445755" loading="lazy"></figure>
+<ol start="2">
+<li><code>~/.condarc</code>文件内容</li>
+</ol>
+<pre><code>channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirror.nju.edu.cn/anaconda/pkgs/main
+  - https://mirror.nju.edu.cn/anaconda/pkgs/r
+  - https://mirror.nju.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
+  msys2: https://mirror.nju.edu.cn/anaconda/cloud
+  bioconda: https://mirror.nju.edu.cn/anaconda/cloud
+  menpo: https://mirror.nju.edu.cn/anaconda/cloud
+  pytorch: https://mirror.nju.edu.cn/anaconda/cloud
+  simpleitk: https://mirror.nju.edu.cn/anaconda/cloud
+auto_activate_base: true
+changeps1: true
+</code></pre>
+<h3 id="解答">解答</h3>
+<p>修复了问题1的问题后，并在<code>~/.condarc</code>中添加<code>changeps1: true</code>后，即可正常显示环境名</p>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/o58Z8Xq.png" alt="image-20231213164749675" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[wsl的export和import，释放C盘空间]]></title>
+        <id>https://estarpro1022.github.io/post/wsl-de-export-he-importshi-fang-c-pan-kong-jian/</id>
+        <link href="https://estarpro1022.github.io/post/wsl-de-export-he-importshi-fang-c-pan-kong-jian/">
+        </link>
+        <updated>2023-11-07T09:02:38.000Z</updated>
+        <content type="html"><![CDATA[<p>C盘空间又不够了，于是用spacesniffer查看磁盘使用情况，发现wsl占用了很大一块空间。<code>win+r</code>输入<code>%localappdata%\Packages</code>，找到CanonicalGroupLimited.Ubuntu20.04LTS，文件夹占的空间很大。于是决定将wsl迁移到D盘（D盘默默流泪😓</p>
+<h1 id="wsl迁移及设置默认用户">wsl迁移及设置默认用户</h1>
+<ol>
+<li><code>wsl -l -v</code> 查看Ubuntu发行版，确定distribution name</li>
+</ol>
+<pre><code class="language-powershell">PS C:\Users\estar&gt; wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu-20.04           Stopped         2
+  docker-desktop-data    Stopped         2
+  docker-desktop         Stopped         2
+</code></pre>
+<ol start="2">
+<li><code>wsl --shutdown</code> 终止所有正在运行的分发（distribution）</li>
+<li><code>wsl --export Ubuntu-20.04 &quot;D:\ubuntu_20_04\ubuntu20_04.tar&quot;</code> 将指定分发导出到特定磁盘位置，导出文件后缀为<strong>tar</strong>。通常可以用作备份</li>
+<li><code>wsl --unregister Ubuntu-20.04</code> 注销分发，释放空间</li>
+<li><code>wsl --import Ubuntu-20.04 &quot;D:\ubuntu_20_04\ubuntu&quot; &quot;D:\ubuntu_20_04\ubuntu20_04.tar&quot;</code> 将tar文件导入到D盘，分发名称为<code>Ubuntu-20.04</code></li>
+<li><code>wsl --set-default Ubuntu-20.04</code> 设置Ubuntu-20.04为默认发行版</li>
+<li><code>wsl</code> 启动默认wsl发行版，发现登录用户为root，我们可以修改default user</li>
+<li><code>vim /etc/wsl.conf</code> 填入以下内容</li>
+</ol>
+<pre><code>[user]
+default=kartone  
+</code></pre>
+<ol start="9">
+<li><code>exit</code> 退出wsl，然后<code>wsl --shutdown</code>，重新进入<code>wsl</code>用户名即是<code>kartone</code>了</li>
+</ol>
+<p>参考：</p>
+<ul>
+<li><a href="http://t.csdnimg.cn/N7x09">使用wsl命令迁移WSL</a></li>
+<li><a href="https://github.com/LpCodes/Moving-WSL-Distribution-to-Another-Drive">Moving WSL Distribution to Another Drive</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/510650353">WSL2 Ubuntu-20.04文件太占c盘空间，使用导入导出来实现位置挪移，移动到d盘下面</a></li>
+</ul>
+<h1 id="mixed">Mixed</h1>
+<ul>
+<li>关于wsl的vim复制粘贴</li>
+</ul>
+<p><code>vim ~/.vimrc</code>的最后几行，是之前添加的，能够实现复制粘贴的功能</p>
+<pre><code class="language-bash">map ;y :!/mnt/c/Windows/System32/clip.exe &lt;cr&gt;u
+map ;p :read !/mnt/c/Windows/System32/paste.exe &lt;cr&gt;i&lt;bs&gt;&lt;esc&gt;l
+map! ;p &lt;esc&gt;:read !/mnt/c/Windows/System32/paste.exe &lt;cr&gt;i&lt;bs&gt;&lt;esc&gt;l
+</code></pre>
+<p><code>paste.exe</code>是网上找的</p>
+<ul>
+<li>官方文档</li>
+</ul>
+<p>在上网查资料时，遇到一些非官方教程，内心难免会产生不信任的心理，这是就不要继续查找别的非官方教程了，直接打开<strong>官方文档</strong>，找到相关内容。比如Windows的<a href="https://learn.microsoft.com/zh-cn/windows/wsl/">适用于 Linux 的 Windows 子系统文档</a>就很详细，关于wsl的一些命令都解释得很清楚。</p>
+<p>同时<code>wsl -h</code>也提供了相关解释。</p>
+<p><mark>信不过民间答案的时候，请务必求助于官方解答。</mark></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ROS小乌龟追逐战]]></title>
+        <id>https://estarpro1022.github.io/post/ros-xiao-wu-gui-zhui-zhu-zhan/</id>
+        <link href="https://estarpro1022.github.io/post/ros-xiao-wu-gui-zhui-zhu-zhan/">
+        </link>
+        <updated>2023-11-02T08:51:18.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="概述">概述</h1>
+<h2 id="基本环境">基本环境</h2>
+<p>系统：Ubuntu 18.04</p>
+<p>ROS：Melodic</p>
+<h2 id="项目内容">项目内容</h2>
+<p>本项目基于ROS Melodic，实现小乌龟画圆。一只小乌龟在二维空间中随机游走，另一只小乌龟追随这只小乌龟。随机游走的小乌龟在即将靠近墙壁时会后退一小段距离、原地调整方向，然后继续前进。</p>
+<h1 id="流程">流程</h1>
+<h2 id="准备工作区">准备工作区</h2>
+<pre><code class="language-shell">$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkin_ws/src
+$ catkin_init_workspace	# src文件夹下出现CMakeLists.txt
+
+$ cd ~/catkin_ws
+$ catkin_make	# 生成build和devel文件夹
+
+$ source devel/setup.bash	# 否则rosrun my_turtle random_walk无法识别my_turtle包
+$ echo $ROS_PACKAGE_PATH
+
+$ cd ~/catkin_ws/src
+$ catkin_create_pkg my_turtle rospy roscpp geometry_msgs turtlesim	# 后面跟着的是依赖包，在CMakeLists.txt的find_package中可以查看
+
+$ vim random_walk.cpp	# 编写turtle运动逻辑
+
+... coding ...
+
+$ vim ~/catkin_ws/src/my_turtle/CMakeLists.txt
+
+...添加以下内容...
+add_executable(random_walk src/random_walk.cpp)
+target_link_libraries(random_walk ${catkin_LIBRARIES})
+
+$ cd ~/catkin_ws
+$ catkin_make	# 编译项目，每次修改cpp或CMakeLists.txt都要重新编译
+</code></pre>
+<h2 id="运行">运行</h2>
+<ol>
+<li>打开第一个终端</li>
+</ol>
+<pre><code class="language-shell">$ roscore
+</code></pre>
+<ol start="2">
+<li>打开第二个终端，启动rosnode</li>
+</ol>
+<pre><code class="language-shell">$ rosrun turtlesim turtlesim_node
+</code></pre>
+<ol start="3">
+<li>打开第三个终端，&lt;Ctrl + C&gt;退出进程</li>
+</ol>
+<pre><code class="language-shell">$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ rosrun my_turtle random_walk
+[ INFO] [1698908047.527058097]: draw_circle start...
+
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/cbpYtxm.png" alt="小乌龟追逐" loading="lazy"></figure>
+<h1 id="主要功能">主要功能</h1>
+<h2 id="前置知识">前置知识</h2>
+<h3 id="rosspin和rosspinonce">ros::spin()和ros::spinOnce()</h3>
+<p>单线程，用于callback回调，比如订阅消息，其中<code>ros::spinOnce()</code>一般在<code>while(ros::ok())</code>循环中调用，<code>ros::spin()</code>在程序最后调用</p>
+<pre><code>ros::init(argc, argv, &quot;my_node&quot;);
+ros::NodeHandle nh;
+ros::Subscriber sub = nh.subscribe(...);
+...
+ros::spin();
+</code></pre>
+<p>参考：<a href="https://wiki.ros.org/roscpp/Overview/Callbacks%20and%20Spinning">Callbacks and Spinning</a></p>
+<h3 id="rosrate">ros::Rate</h3>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/rB0uhAa.png" alt="image-20231102153810385" loading="lazy"></figure>
+<p><code>ros::Rate</code>可以动态选择沉睡时间，比<code>#include &lt;unistd.h&gt;</code>下的<code>sleep</code>更加灵活</p>
+<pre><code class="language-c++">ros::Rate rate(10);	// 10Hz，对应时长为100ms
+while (ros::ok()) {
+    ...
+    rate.sleep();
+}
+</code></pre>
+<p>参考：<a href="https://roboticsbackend.com/ros-rate-roscpy-roscpp/#:~:text=ROS%20Rate%20is%20different%20from,the%20sleep%20will%20be%20shorter.">ROS Rate (rospy and roscpp)</a></p>
+<h3 id="publisher和subscriber">Publisher和Subscriber</h3>
+<p>其实想想就知道，操作系统就讲过生产者和消费者的内容，<s>当时年少轻狂啊</s></p>
+<p>文档注释十分详细，搭配代码食用更佳。这里就简略说下重点吧</p>
+<ol>
+<li>
+<p><code>ros::NodeHandle n</code> 与ROS运行系统通信以控制节点</p>
+</li>
+<li>
+<p><code>n.advertise&lt;${message type}&gt;(&quot;${topic name}&quot;, ${queue_size})</code>生成<strong>Publisher</strong>，举个例子，消息类型为<code>geometry_msgs::Twist</code>，话题name为<code>/turtle1/cmd_vel</code>，缓存队列长度为10</p>
+<ul>
+<li>
+<p>注意topic name为<code>/turtle1/cmd_vel</code>，默认小乌龟名称为<code>turtle1</code>，后续可以用<code>Spawn</code>生成更多小乌龟</p>
+</li>
+<li>
+<p>引入头文件<code>#include &lt;geometry_msgs/Twist.h&gt;</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>vel_pub.publish(...)</code> 发布消息</p>
+</li>
+<li>
+<p><code>n.subscribe&lt;geometry_msgs::Twist&gt;(&quot;/turtle1/cmd_vel&quot;, 10, callbackfunction)</code> 订阅turtle1的<code>cmd_vel</code>话题。<code>ros::spinOnce()</code>后回调函数</p>
+<ul>
+<li>消息类型<code>&lt;geometry_msgs::Twist&gt;</code>可以省略，但是最好明确指定消息类型参数，确保类型安全和可读性</li>
+</ul>
+</li>
+</ol>
+<p>参考：<a href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber</a></p>
+<p>突然觉得，我们该把<a href="https://wiki.ros.org/cn/ROS/Tutorials">ROS教程</a>从头到尾做一遍，因为发送者和订阅者部分涉及了前面讲的<code>msg</code>和<code>srv</code>，导致直接运行代码跑不起来。</p>
+<h3 id="include-turtlesimposeh">#include &lt;turtlesim/Pose.h&gt;</h3>
+<p>我们如何获取小乌龟的<strong>当前位置</strong>、<strong>朝向</strong>和<strong>速度</strong>等属性呢，答案是订阅<code>turtlesim::Pose</code>消息</p>
+<ul>
+<li>不能通过发布<code>turtlesim::Pose</code>消息更改小乌龟的状态，只能用<code>geometry_msgs::Twist</code>移动小乌龟</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://i.imgur.com/PvahSsc.png" alt="image-20231102161518341" loading="lazy"></figure>
+<h3 id="common-commands">common commands</h3>
+<h4 id="rostopic-list-列举运行系统中所有topic">rostopic list-列举运行系统中所有topic</h4>
+<p>我们用<code>rostopic list</code>可以看到<code>/turtle1/pose</code>，所以我们不需要手动publish这个话题，只需要订阅即可</p>
+<pre><code class="language-shell">xueteng@alex:~/catkin_ws$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+</code></pre>
+<h4 id="rostopic-info-查看topic的发布者和订阅者">rostopic info-查看topic的发布者和订阅者</h4>
+<figure data-type="image" tabindex="4"><img src="https://s2.51cto.com/images/blog/202209/14103540_63213dfc6686764606.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=/format,webp/resize,m_fixed,w_1184" alt="" loading="lazy"></figure>
+<p>参考：<a href="https://blog.51cto.com/u_7784550/5677187">ROS<strong>常用命令</strong></a></p>
+<h3 id="spawn创建小乌龟">Spawn创建小乌龟</h3>
+<pre><code class="language-c++">#include &lt;turtlesim/Spawn.h&gt;
+
+ros::NodeHandle n;
+ros::service::waitForService(&quot;spawn&quot;);
+ros::ServiceClient client = n.serviceClient&lt;turtlesim::Spawn&gt;(&quot;spawn&quot;);	// 定义spawn服务
+turtlesim::Spawn turtle;
+turtle.request.name = &quot;turtle2&quot;;
+turtle.request.x = 1.0;
+turtle.request.y = 2.0;
+turtle.request.theta = 0.5;
+client.call(turtle);	// 创建名为turtle2的小乌龟
+
+... turtle2的运动处理 ...
+</code></pre>
+<p>参考：<a href="http://t.csdnimg.cn/sMH3a">ROS----好多小乌龟</a></p>
+<h3 id="atan2">atan2</h3>
+<pre><code>double atan2 (double y, double x);
+</code></pre>
+<p>atan2的返回结果在[-pi, pi]之间，因为结合了坐标的象限</p>
+<p>参考：https://cplusplus.com/reference/cmath/atan2/</p>
+<h2 id="功能实现">功能实现</h2>
+<h3 id="订阅小乌龟的turtlesimpose">订阅小乌龟的turtlesim::Pose</h3>
+<pre><code class="language-c++">turtlesim::Pose first_pos;
+
+void cur_pos_of_first(const turtlesim::Pose::ConstPtr &amp;pose) {
+    first_pos.x = pose-&gt;x;
+    first_pos.y = pose-&gt;y;
+    first_pos.theta = pose-&gt;theta;
+    first_pos.linear_velocity = pose-&gt;linear_velocity;
+    first_pos.angular_velocity = pose-&gt;angular_velocity;
+}
+</code></pre>
+<pre><code class="language-c++">ros::Subscriber first_pos_sub = n.subscribe&lt;turtlesim::Pose&gt;(&quot;/turtle1/pose&quot;, 10, cur_pos_of_first);
+
+...
+    ros::spinOnce(); // 触发回调
+...
+</code></pre>
+<h3 id="随机游走">随机游走</h3>
+<p><code>next_move()</code>计算小乌龟下一次的运动状态</p>
+<p><code>count == FREQUENCY</code>为true时再重新计算<code>next_move()</code>，使得小乌龟在运动一定时间后才会改变运动状态</p>
+<p>代码参考：https://reurl.cc/jvO3O2</p>
+<h3 id="碰撞处理">碰撞处理</h3>
+<p>当小乌龟<code>close_to_wall()</code>时，就会触发<code>resolve_collision()</code>碰撞处理，即先后退一小段距离，然后将线速度设为0，原地旋转调整方向。不过不能保证调整方向后不会再次靠近墙壁。</p>
+<h3 id="追踪">追踪</h3>
+<p>在已知两个小乌龟位置和方向的情况下，如果通过数学计算精确计算出second turtle的线速度和角速度极其困难，所以这里我们采用<strong>模糊处理</strong>的方式，判断second turtle大致的angular velocity。</p>
+<p>注意：因为theta取值范围在[-pi, pi]，有时两只小乌龟的夹角会突然从负值跳到正值，比如从-0.99*pi到0.99*pi，导致second turtle的方向会诡异地变化。我们可以先判断夹角的绝对值是否大于一定阈值，若大于阈值则调整second turtle的角速度，在短时间内将方向扭转过来</p>
+<h1 id="问题">问题</h1>
+<p>当小乌龟close the wall时，会后退一小段距离，如果在后退的过程中又靠近墙，就会一直后退、、、可以减少后退的距离，减少bug出现的几率，但是无法保证不出现bug。</p>
+]]></content>
+    </entry>
+</feed>

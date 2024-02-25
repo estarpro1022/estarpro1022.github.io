@@ -1,0 +1,181 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>free talk | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="free talk | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Github学生包
+众所周知，github的student developer pack是个香饽饽，可以免费白嫖很多服务，像.me顶级域名和服务器代金券。大部分服务在申请一年后就失效，但是像copilot这类服务只要有学生包就能一直用。
+令..." />
+    <meta name="keywords" content="夜谈,github" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              free talk
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-09-27
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/dkhSYmz0A/" class="post-tag">
+                  # 夜谈
+                </a>
+              
+                <a href="https://estarpro1022.github.io/tag/qyTvSL1l6l/" class="post-tag">
+                  # github
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="github学生包">Github学生包</h1>
+<p>众所周知，github的student developer pack是个香饽饽，可以免费白嫖很多服务，像.me顶级域名和服务器代金券。大部分服务在申请一年后就失效，但是像copilot这类服务只要有学生包就能一直用。</p>
+<p>令我百思不得其解的是，申请在第一步就卡住了，提示说校邮之前已被拿来注册学生包，用户名（Github Account）是Bboykartone。在github还真能搜到这个用户，只是查不出来注册邮箱，我真想不起来用哪个邮箱注册的这个账号了啊啊。学生包的事不了了之，舍友推荐用codium作为copilot的平替。</p>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/GspzoWg.png" alt="image-20230927142949656" loading="lazy"></figure>
+<h1 id="如何搭建github-pages">如何搭建Github Pages</h1>
+<p>在github仓库的设置里，有个叫Pages的section。GitHub有个skills-github-pages手把手教学如何为仓库创建可访问的网站，所创的site都会在github.io名录下。</p>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/IbxazWk.png" alt="image-20230927143202576" loading="lazy"></figure>
+<p>类似地，我们可以利用Github Pages搭建自己的静态博客，但是博客不能像WordPress一样直接写东西。我们可以借助<mark>Gridea</mark>，本地写文章然后push到远程端。每次push都会产生action。Gridea界面淡雅清新，挺喜欢的。仿佛回到了22年，那时候喜欢折腾WordPress的主题。</p>
+<figure data-type="image" tabindex="3"><img src="https://i.imgur.com/impfDLJ.png" alt="image-20230927143434943" loading="lazy"></figure>
+<h1 id="免除登录认证还未成功">免除登录认证（还未成功）</h1>
+<p>在authserver网站按下F12，在cookies找到CASTGC的东西，将expire的日期修改。不过需要再找个能锁住cookies的插件，我们使用 <code>EditThisCookie</code> 锁定。但是貌似仍然要认证，搞不懂</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#github%E5%AD%A6%E7%94%9F%E5%8C%85">Github学生包</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAgithub-pages">如何搭建Github Pages</a></li>
+<li><a href="#%E5%85%8D%E9%99%A4%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81%E8%BF%98%E6%9C%AA%E6%88%90%E5%8A%9F">免除登录认证（还未成功）</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

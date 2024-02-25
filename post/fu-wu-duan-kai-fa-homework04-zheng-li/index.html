@@ -1,0 +1,321 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>服务端开发Homework04整理 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="服务端开发Homework04整理 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Homework04要求
+
+基于Spring MVC框架，实现新增联系人和显示所有联系人的功能
+错误校验
+数据保存在内存中，暂时不需要实现数据持久化
+
+使用界面：
+
+错误校验：
+
+功能：
+
+所填内容正确的情况下，点击“添加”按钮即可在右侧显..." />
+    <meta name="keywords" content="Spring Boot" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              服务端开发Homework04整理
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-10-05
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/wimxzgik0/" class="post-tag">
+                  # Spring Boot
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://estarpro1022.github.io//post-images/fu-wu-duan-kai-fa-homework04-zheng-li.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="homework04要求">Homework04要求</h1>
+<ol>
+<li>基于Spring MVC框架，实现新增联系人和显示所有联系人的功能</li>
+<li>错误校验</li>
+<li>数据保存在内存中，暂时不需要实现数据持久化</li>
+</ol>
+<p><strong>使用界面</strong>：</p>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/OXbcBT8.png" alt="" loading="lazy"></figure>
+<p><strong>错误校验</strong>：</p>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/LSgOqGD.png" alt="" loading="lazy"></figure>
+<p><strong>功能</strong>：</p>
+<ol>
+<li>所填内容正确的情况下，点击“添加”按钮即可在右侧显示新增的联系人</li>
+<li>“重置”用于清除所有输入框</li>
+<li>“显示列表”用于切换右侧表格的可见性</li>
+</ol>
+<h1 id="本次项目需要导入的maven依赖包">本次项目需要导入的Maven依赖包</h1>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+// 如果报错Cannot resolve MVC view，则是未导入thymeleaf依赖的原因
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h1 id="log">log</h1>
+<p><code>@Slf4j</code> 标注需要打log的类，<code>log.info(&quot;hello&quot;)</code> 即可在控制台输出日志</p>
+<h2 id="日志没有输出">日志没有输出？</h2>
+<pre><code class="language-java">@PostMapping
+public String addContact(@Valid Contact contact, Errors errors) {
+    if (errors.hasErrors()) {
+        // log.info(&quot;error occurs&quot;)
+        return &quot;home&quot;;
+    }
+
+    contact.setId((long) (contactService.getAll().size() + 1));
+    contactService.add(contact);
+    log.info(&quot;add a Contact: &quot; + contact);
+    return &quot;redirect:/&quot;;
+}
+</code></pre>
+<p>想要验证post请求是否被处理，想着只要出现<code>add a Contact</code> 就算成功了。结果控制台啥都没有，疑惑了好一阵子，然后发现是因为<code>hasErrors()</code>为true，函数直接在if语句中返回了，后续的log语句当然也无法执行</p>
+<p>解决方法：</p>
+<ul>
+<li>如果要验证某个方法是否被执行，直接在最开始打log，别留在后面打，防止控制流中途改变导致后面的log语句未执行</li>
+</ul>
+<h1 id="错误校验">错误校验</h1>
+<p><code>@NotNull</code> <code>@Size</code> 等注解标注领域类， <code>@Valid</code> 验证</p>
+<p>如果校验失败，<code>errors.hasErrors()</code> 就为true，thymeleaf中的<code>${#fields.hasErrors()}</code> 也为true</p>
+<p><code>&lt;span class=&quot;error&quot; th:if=&quot;${#fields.hasErrors('firstName')}&quot; th:errors=&quot;*{firstName}&quot;&gt;&lt;/span&gt;</code> 意思是如果 <code>firstName</code> 校验失败，span标签就显示firstName的错误信息。注意：hasErrors的参数是个字符串，且名称需要和领域类的属性相对应</p>
+<h2 id="notnull-notblank和notempty">NotNull NotBlank和NotEmpty</h2>
+<ul>
+<li><em>@NotNull:</em> a constrained <em>CharSequence</em>, <em>Collection</em>, <em>Map,</em> or <em>Array</em> is valid as long as it’s not null, but it can be empty.</li>
+<li><em>@NotEmpty:</em> a constrained <em>CharSequence</em>, <em>Collection</em>, <em>Map,</em> or <em>Array</em> is valid as long as it’s not null, and its size/length is greater than zero.</li>
+<li><em>@NotBlank:</em> a constrained <em><strong>String</strong></em> is valid as long as it’s not null, and the trimmed length is greater than zero.</li>
+</ul>
+<p>reference: <a href="https://www.baeldung.com/java-bean-validation-not-null-empty-blank">spring boot validation not null or empty</a></p>
+<h2 id="handle-multiple-validation-errors">Handle multiple validation errors</h2>
+<p>如果 <code>@NotBlank</code> 和 <code>@Size(min=2, max=4)</code> 同时使用，当用户输入为空时，会出现两处错误</p>
+<p>解决方法：<a href="https://stackoverflow.com/a/7600343/17627011">@ReportAsSingleViolation</a></p>
+<h1 id="表单数据映射到模型类">表单数据映射到模型类</h1>
+<pre><code class="language-java">// Contact.java
+
+@Data
+public class Contact implements Serializable {
+//    @NotNull
+    private Long id;
+
+    @NotNull
+    @Size(min = 1, message = &quot;姓名长度至少为1&quot;)
+    private String firstName;
+    
+	...
+}
+
+</code></pre>
+<p>表单中没有数据和id对应，所以在模型类中先不要设置id为NotNull，否则在组合成Contact那一步，SpringBoot会因为找不到id的映射而报错。所以我们可以先组合Contact，此时id为null，然后在处理post请求那一步设定id的值</p>
+<h1 id="html">Html</h1>
+<h2 id="预览界面">预览界面</h2>
+<p>在SpringBoot中，html放在<code>templates</code>下，css放在<code>static</code>下，如果在html中引入css，使用<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot;/&gt;</code>。</p>
+<p>浏览器可以正常预览，可是SpringBoot运行起来后css就not work了，那么我们新增<code>th:href</code>即可，<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/style.css&quot; th:href=&quot;@{/style.css}&quot;/&gt;</code>, because Spring Boot searches for resources at the root of <code>src/main/resources/static</code>.</p>
+<p>参考：<a href="https://stackoverflow.com/a/64514426/17627011">browser won't load the css</a></p>
+<h2 id="button-inside-the-form-cant-apply-javascript">button inside the  form can't apply javascript</h2>
+<p>The default type of tag <code>button</code> is <code>submit</code>. If the button is put into a form, when it's clicked, javascript onto the button will not work. We can change the button type to <strong>button</strong>, so that the <strong>form will not be sent</strong> from the click of button.</p>
+<p>reference: <a href="https://stackoverflow.com/a/56986589/17627011">button not working when placed inside a form</a></p>
+<h2 id="toggle-the-visibility-of-element-by-clicking-a-buttonjavascript">toggle the visibility of element by clicking a button(JavaScript)</h2>
+<pre><code class="language-javascript">let isDisplay = true;
+let table = document.getElementById(&quot;table&quot;);
+document.getElementById(&quot;display&quot;).addEventListener('click', function () {
+    if (isDisplay) {
+        table.style.visibility = &quot;hidden&quot;;
+        isDisplay = false;
+    } else {
+        table.style.visibility = &quot;visible&quot;;
+        isDisplay = true;
+    }
+});
+</code></pre>
+<p>一开始想在<code>model</code>里塞个isDisplay属性，再通过处理点击按钮的请求取反isDisplay，然后发现只能是model把数据传给thymeleaf，并且每次请求都会刷新isDisplay</p>
+<h2 id="beautify-the-page">Beautify the page</h2>
+<p>BootStrap is a good choice. You just need to link the reference at the top of html, and spend little time modifying the position, margin, etc.</p>
+<p>reference: <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">official docs</a></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#homework04%E8%A6%81%E6%B1%82">Homework04要求</a></li>
+<li><a href="#%E6%9C%AC%E6%AC%A1%E9%A1%B9%E7%9B%AE%E9%9C%80%E8%A6%81%E5%AF%BC%E5%85%A5%E7%9A%84maven%E4%BE%9D%E8%B5%96%E5%8C%85">本次项目需要导入的Maven依赖包</a></li>
+<li><a href="#log">log</a>
+<ul>
+<li><a href="#%E6%97%A5%E5%BF%97%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BA">日志没有输出？</a></li>
+</ul>
+</li>
+<li><a href="#%E9%94%99%E8%AF%AF%E6%A0%A1%E9%AA%8C">错误校验</a>
+<ul>
+<li><a href="#notnull-notblank%E5%92%8Cnotempty">NotNull NotBlank和NotEmpty</a></li>
+<li><a href="#handle-multiple-validation-errors">Handle multiple validation errors</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E6%98%A0%E5%B0%84%E5%88%B0%E6%A8%A1%E5%9E%8B%E7%B1%BB">表单数据映射到模型类</a></li>
+<li><a href="#html">Html</a>
+<ul>
+<li><a href="#%E9%A2%84%E8%A7%88%E7%95%8C%E9%9D%A2">预览界面</a></li>
+<li><a href="#button-inside-the-form-cant-apply-javascript">button inside the  form can't apply javascript</a></li>
+<li><a href="#toggle-the-visibility-of-element-by-clicking-a-buttonjavascript">toggle the visibility of element by clicking a button(JavaScript)</a></li>
+<li><a href="#beautify-the-page">Beautify the page</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/free-talk/">
+              <h3 class="post-title">
+                free talk
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

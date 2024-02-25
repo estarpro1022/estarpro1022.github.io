@@ -1,0 +1,393 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ROS小乌龟追逐战 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="ROS小乌龟追逐战 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="概述
+基本环境
+系统：Ubuntu 18.04
+ROS：Melodic
+项目内容
+本项目基于ROS Melodic，实现小乌龟画圆。一只小乌龟在二维空间中随机游走，另一只小乌龟追随这只小乌龟。随机游走的小乌龟在即将靠近墙壁时会后退一小段距离..." />
+    <meta name="keywords" content="ROS" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              ROS小乌龟追逐战
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-11-02
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/hOk6T0Dbr/" class="post-tag">
+                  # ROS
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://estarpro1022.github.io//post-images/ros-xiao-wu-gui-zhui-zhu-zhan.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="概述">概述</h1>
+<h2 id="基本环境">基本环境</h2>
+<p>系统：Ubuntu 18.04</p>
+<p>ROS：Melodic</p>
+<h2 id="项目内容">项目内容</h2>
+<p>本项目基于ROS Melodic，实现小乌龟画圆。一只小乌龟在二维空间中随机游走，另一只小乌龟追随这只小乌龟。随机游走的小乌龟在即将靠近墙壁时会后退一小段距离、原地调整方向，然后继续前进。</p>
+<h1 id="流程">流程</h1>
+<h2 id="准备工作区">准备工作区</h2>
+<pre><code class="language-shell">$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkin_ws/src
+$ catkin_init_workspace	# src文件夹下出现CMakeLists.txt
+
+$ cd ~/catkin_ws
+$ catkin_make	# 生成build和devel文件夹
+
+$ source devel/setup.bash	# 否则rosrun my_turtle random_walk无法识别my_turtle包
+$ echo $ROS_PACKAGE_PATH
+
+$ cd ~/catkin_ws/src
+$ catkin_create_pkg my_turtle rospy roscpp geometry_msgs turtlesim	# 后面跟着的是依赖包，在CMakeLists.txt的find_package中可以查看
+
+$ vim random_walk.cpp	# 编写turtle运动逻辑
+
+... coding ...
+
+$ vim ~/catkin_ws/src/my_turtle/CMakeLists.txt
+
+...添加以下内容...
+add_executable(random_walk src/random_walk.cpp)
+target_link_libraries(random_walk ${catkin_LIBRARIES})
+
+$ cd ~/catkin_ws
+$ catkin_make	# 编译项目，每次修改cpp或CMakeLists.txt都要重新编译
+</code></pre>
+<h2 id="运行">运行</h2>
+<ol>
+<li>打开第一个终端</li>
+</ol>
+<pre><code class="language-shell">$ roscore
+</code></pre>
+<ol start="2">
+<li>打开第二个终端，启动rosnode</li>
+</ol>
+<pre><code class="language-shell">$ rosrun turtlesim turtlesim_node
+</code></pre>
+<ol start="3">
+<li>打开第三个终端，&lt;Ctrl + C&gt;退出进程</li>
+</ol>
+<pre><code class="language-shell">$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ rosrun my_turtle random_walk
+[ INFO] [1698908047.527058097]: draw_circle start...
+
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/cbpYtxm.png" alt="小乌龟追逐" loading="lazy"></figure>
+<h1 id="主要功能">主要功能</h1>
+<h2 id="前置知识">前置知识</h2>
+<h3 id="rosspin和rosspinonce">ros::spin()和ros::spinOnce()</h3>
+<p>单线程，用于callback回调，比如订阅消息，其中<code>ros::spinOnce()</code>一般在<code>while(ros::ok())</code>循环中调用，<code>ros::spin()</code>在程序最后调用</p>
+<pre><code>ros::init(argc, argv, &quot;my_node&quot;);
+ros::NodeHandle nh;
+ros::Subscriber sub = nh.subscribe(...);
+...
+ros::spin();
+</code></pre>
+<p>参考：<a href="https://wiki.ros.org/roscpp/Overview/Callbacks%20and%20Spinning">Callbacks and Spinning</a></p>
+<h3 id="rosrate">ros::Rate</h3>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/rB0uhAa.png" alt="image-20231102153810385" loading="lazy"></figure>
+<p><code>ros::Rate</code>可以动态选择沉睡时间，比<code>#include &lt;unistd.h&gt;</code>下的<code>sleep</code>更加灵活</p>
+<pre><code class="language-c++">ros::Rate rate(10);	// 10Hz，对应时长为100ms
+while (ros::ok()) {
+    ...
+    rate.sleep();
+}
+</code></pre>
+<p>参考：<a href="https://roboticsbackend.com/ros-rate-roscpy-roscpp/#:~:text=ROS%20Rate%20is%20different%20from,the%20sleep%20will%20be%20shorter.">ROS Rate (rospy and roscpp)</a></p>
+<h3 id="publisher和subscriber">Publisher和Subscriber</h3>
+<p>其实想想就知道，操作系统就讲过生产者和消费者的内容，<s>当时年少轻狂啊</s></p>
+<p>文档注释十分详细，搭配代码食用更佳。这里就简略说下重点吧</p>
+<ol>
+<li>
+<p><code>ros::NodeHandle n</code> 与ROS运行系统通信以控制节点</p>
+</li>
+<li>
+<p><code>n.advertise&lt;${message type}&gt;(&quot;${topic name}&quot;, ${queue_size})</code>生成<strong>Publisher</strong>，举个例子，消息类型为<code>geometry_msgs::Twist</code>，话题name为<code>/turtle1/cmd_vel</code>，缓存队列长度为10</p>
+<ul>
+<li>
+<p>注意topic name为<code>/turtle1/cmd_vel</code>，默认小乌龟名称为<code>turtle1</code>，后续可以用<code>Spawn</code>生成更多小乌龟</p>
+</li>
+<li>
+<p>引入头文件<code>#include &lt;geometry_msgs/Twist.h&gt;</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>vel_pub.publish(...)</code> 发布消息</p>
+</li>
+<li>
+<p><code>n.subscribe&lt;geometry_msgs::Twist&gt;(&quot;/turtle1/cmd_vel&quot;, 10, callbackfunction)</code> 订阅turtle1的<code>cmd_vel</code>话题。<code>ros::spinOnce()</code>后回调函数</p>
+<ul>
+<li>消息类型<code>&lt;geometry_msgs::Twist&gt;</code>可以省略，但是最好明确指定消息类型参数，确保类型安全和可读性</li>
+</ul>
+</li>
+</ol>
+<p>参考：<a href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber</a></p>
+<p>突然觉得，我们该把<a href="https://wiki.ros.org/cn/ROS/Tutorials">ROS教程</a>从头到尾做一遍，因为发送者和订阅者部分涉及了前面讲的<code>msg</code>和<code>srv</code>，导致直接运行代码跑不起来。</p>
+<h3 id="include-turtlesimposeh">#include &lt;turtlesim/Pose.h&gt;</h3>
+<p>我们如何获取小乌龟的<strong>当前位置</strong>、<strong>朝向</strong>和<strong>速度</strong>等属性呢，答案是订阅<code>turtlesim::Pose</code>消息</p>
+<ul>
+<li>不能通过发布<code>turtlesim::Pose</code>消息更改小乌龟的状态，只能用<code>geometry_msgs::Twist</code>移动小乌龟</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://i.imgur.com/PvahSsc.png" alt="image-20231102161518341" loading="lazy"></figure>
+<h3 id="common-commands">common commands</h3>
+<h4 id="rostopic-list-列举运行系统中所有topic">rostopic list-列举运行系统中所有topic</h4>
+<p>我们用<code>rostopic list</code>可以看到<code>/turtle1/pose</code>，所以我们不需要手动publish这个话题，只需要订阅即可</p>
+<pre><code class="language-shell">xueteng@alex:~/catkin_ws$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+</code></pre>
+<h4 id="rostopic-info-查看topic的发布者和订阅者">rostopic info-查看topic的发布者和订阅者</h4>
+<figure data-type="image" tabindex="4"><img src="https://s2.51cto.com/images/blog/202209/14103540_63213dfc6686764606.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=/format,webp/resize,m_fixed,w_1184" alt="" loading="lazy"></figure>
+<p>参考：<a href="https://blog.51cto.com/u_7784550/5677187">ROS<strong>常用命令</strong></a></p>
+<h3 id="spawn创建小乌龟">Spawn创建小乌龟</h3>
+<pre><code class="language-c++">#include &lt;turtlesim/Spawn.h&gt;
+
+ros::NodeHandle n;
+ros::service::waitForService(&quot;spawn&quot;);
+ros::ServiceClient client = n.serviceClient&lt;turtlesim::Spawn&gt;(&quot;spawn&quot;);	// 定义spawn服务
+turtlesim::Spawn turtle;
+turtle.request.name = &quot;turtle2&quot;;
+turtle.request.x = 1.0;
+turtle.request.y = 2.0;
+turtle.request.theta = 0.5;
+client.call(turtle);	// 创建名为turtle2的小乌龟
+
+... turtle2的运动处理 ...
+</code></pre>
+<p>参考：<a href="http://t.csdnimg.cn/sMH3a">ROS----好多小乌龟</a></p>
+<h3 id="atan2">atan2</h3>
+<pre><code>double atan2 (double y, double x);
+</code></pre>
+<p>atan2的返回结果在[-pi, pi]之间，因为结合了坐标的象限</p>
+<p>参考：https://cplusplus.com/reference/cmath/atan2/</p>
+<h2 id="功能实现">功能实现</h2>
+<h3 id="订阅小乌龟的turtlesimpose">订阅小乌龟的turtlesim::Pose</h3>
+<pre><code class="language-c++">turtlesim::Pose first_pos;
+
+void cur_pos_of_first(const turtlesim::Pose::ConstPtr &amp;pose) {
+    first_pos.x = pose-&gt;x;
+    first_pos.y = pose-&gt;y;
+    first_pos.theta = pose-&gt;theta;
+    first_pos.linear_velocity = pose-&gt;linear_velocity;
+    first_pos.angular_velocity = pose-&gt;angular_velocity;
+}
+</code></pre>
+<pre><code class="language-c++">ros::Subscriber first_pos_sub = n.subscribe&lt;turtlesim::Pose&gt;(&quot;/turtle1/pose&quot;, 10, cur_pos_of_first);
+
+...
+    ros::spinOnce(); // 触发回调
+...
+</code></pre>
+<h3 id="随机游走">随机游走</h3>
+<p><code>next_move()</code>计算小乌龟下一次的运动状态</p>
+<p><code>count == FREQUENCY</code>为true时再重新计算<code>next_move()</code>，使得小乌龟在运动一定时间后才会改变运动状态</p>
+<p>代码参考：https://reurl.cc/jvO3O2</p>
+<h3 id="碰撞处理">碰撞处理</h3>
+<p>当小乌龟<code>close_to_wall()</code>时，就会触发<code>resolve_collision()</code>碰撞处理，即先后退一小段距离，然后将线速度设为0，原地旋转调整方向。不过不能保证调整方向后不会再次靠近墙壁。</p>
+<h3 id="追踪">追踪</h3>
+<p>在已知两个小乌龟位置和方向的情况下，如果通过数学计算精确计算出second turtle的线速度和角速度极其困难，所以这里我们采用<strong>模糊处理</strong>的方式，判断second turtle大致的angular velocity。</p>
+<p>注意：因为theta取值范围在[-pi, pi]，有时两只小乌龟的夹角会突然从负值跳到正值，比如从-0.99*pi到0.99*pi，导致second turtle的方向会诡异地变化。我们可以先判断夹角的绝对值是否大于一定阈值，若大于阈值则调整second turtle的角速度，在短时间内将方向扭转过来</p>
+<h1 id="问题">问题</h1>
+<p>当小乌龟close the wall时，会后退一小段距离，如果在后退的过程中又靠近墙，就会一直后退、、、可以减少后退的距离，减少bug出现的几率，但是无法保证不出现bug。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83">基本环境</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E5%86%85%E5%AE%B9">项目内容</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%81%E7%A8%8B">流程</a>
+<ul>
+<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%E5%8C%BA">准备工作区</a></li>
+<li><a href="#%E8%BF%90%E8%A1%8C">运行</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</a>
+<ul>
+<li><a href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86">前置知识</a>
+<ul>
+<li><a href="#rosspin%E5%92%8Crosspinonce">ros::spin()和ros::spinOnce()</a></li>
+<li><a href="#rosrate">ros::Rate</a></li>
+<li><a href="#publisher%E5%92%8Csubscriber">Publisher和Subscriber</a></li>
+<li><a href="#include-turtlesimposeh">#include &lt;turtlesim/Pose.h&gt;</a></li>
+<li><a href="#common-commands">common commands</a>
+<ul>
+<li><a href="#rostopic-list-%E5%88%97%E4%B8%BE%E8%BF%90%E8%A1%8C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%89%80%E6%9C%89topic">rostopic list-列举运行系统中所有topic</a></li>
+<li><a href="#rostopic-info-%E6%9F%A5%E7%9C%8Btopic%E7%9A%84%E5%8F%91%E5%B8%83%E8%80%85%E5%92%8C%E8%AE%A2%E9%98%85%E8%80%85">rostopic info-查看topic的发布者和订阅者</a></li>
+</ul>
+</li>
+<li><a href="#spawn%E5%88%9B%E5%BB%BA%E5%B0%8F%E4%B9%8C%E9%BE%9F">Spawn创建小乌龟</a></li>
+<li><a href="#atan2">atan2</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0">功能实现</a>
+<ul>
+<li><a href="#%E8%AE%A2%E9%98%85%E5%B0%8F%E4%B9%8C%E9%BE%9F%E7%9A%84turtlesimpose">订阅小乌龟的turtlesim::Pose</a></li>
+<li><a href="#%E9%9A%8F%E6%9C%BA%E6%B8%B8%E8%B5%B0">随机游走</a></li>
+<li><a href="#%E7%A2%B0%E6%92%9E%E5%A4%84%E7%90%86">碰撞处理</a></li>
+<li><a href="#%E8%BF%BD%E8%B8%AA">追踪</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%97%AE%E9%A2%98">问题</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/vim-jian-qie-ban-he-ubuntu-xi-tong-tong-bu-de-tan-jiu/">
+              <h3 class="post-title">
+                vim剪切板和Ubuntu系统同步的探究
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

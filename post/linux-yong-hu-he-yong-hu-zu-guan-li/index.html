@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>linux用户和用户组管理 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="linux用户和用户组管理 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="管理、查询用户信息
+Linux 将用户账号、密码等相关的信息分别存储在四个文件夹下：
+
+/etc/passwd —— 管理用户UID/GID重要参数
+/etc/shadow —— 管理用户密码
+/etc/group —— 管理用户组相关信息..." />
+    <meta name="keywords" content="linux" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              linux用户和用户组管理
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-12-17
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/L7HteT5Nt/" class="post-tag">
+                  # linux
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h1 id="管理-查询用户信息">管理、查询用户信息</h1>
+<p>Linux 将用户账号、密码等相关的信息分别存储在四个文件夹下：</p>
+<ul>
+<li>/etc/passwd —— 管理用户UID/GID重要参数</li>
+<li>/etc/shadow —— 管理用户密码</li>
+<li>/etc/group —— 管理用户组相关信息</li>
+<li>/etc/gshadow —— 管理用户组管理员相关信息</li>
+</ul>
+<p><strong>user</strong></p>
+<ul>
+<li><code>groups &lt;user&gt;</code>：打印用户所在的用户组</li>
+<li><code>members &lt;group&gt;</code>：打印用户组的成员</li>
+<li><code>id &lt;user&gt;</code>：输出用户uid、gid、groups信息，gid是primary group的标识</li>
+</ul>
+<pre><code class="language-shell">root@mobile-server:~# cat /etc/passwd | grep zxt
+zxt:x:1000:1000::/home/zxt:/bin/bash
+root@mobile-server:~# groups zxt  # 
+zxt : zxt mobile
+root@mobile-server:~# members mobile
+zxt hsh
+root@mobile-server:~# id zxt
+uid=1000(zxt) gid=1000(zxt) groups=1000(zxt),1002(mobile)
+</code></pre>
+<p><strong>group</strong></p>
+<ul>
+<li><code>getent group </code>：查看所有用户组</li>
+<li><code>getent group {{group_name}}</code>：查看指定用户组的成员</li>
+</ul>
+<pre><code class="language-shell">root@mobile-server:~# getent group mobile
+mobile:x:1002:zxt,hsh
+</code></pre>
+<ul>
+<li><code>newgrp {{group_name}}</code>：修改当前用户的主用户组</li>
+</ul>
+<pre><code class="language-shell">zxt@mobile-server:~$ id
+uid=1000(zxt) gid=1000(zxt) groups=1000(zxt),1002(mobile)
+zxt@mobile-server:~$ newgrp mobile 
+zxt@mobile-server:~$ id
+uid=1000(zxt) gid=1002(mobile) groups=1002(mobile),1000(zxt)
+</code></pre>
+<h1 id="添加用户">添加用户</h1>
+<p><code>adduser</code>的交互性更强，而<code>useradd</code>需显式指定主目录、shell。推荐使用</p>
+<blockquote>
+<p>useradd is a low level utility for adding users. On Debian, administrators should usually use adduser(8) instead.</p>
+</blockquote>
+<p>创建新用户后，需要<code>vim /etc/sudoers</code>为新用户创建sudo权限</p>
+<pre><code class="language-shell">root    ALL=(ALL:ALL) ALL
+zxt     ALL=(ALL:ALL) ALL
+</code></pre>
+<p><code>su {{username}}</code>就可以切换当前用户</p>
+<p>参考：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/105482468">一篇读懂 Linux 用户管理与操作</a></li>
+<li><a href="https://kb.iu.edu/d/adwf">Find a user's UID or GID in Unix</a></li>
+<li><a href="https://www.cyberciti.biz/faq/understanding-etcgroup-file/">Understanding /etc/group File in Linux</a></li>
+<li><a href="https://serverfault.com/questions/605812/etc-passwd-shows-user-in-a-group-but-etc-group-does-not">/etc/passwd shows user in a group, but /etc/group does not</a></li>
+</ol>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E7%AE%A1%E7%90%86-%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF">管理、查询用户信息</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7">添加用户</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/svm-develop-note/">
+              <h3 class="post-title">
+                SVM develop note
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

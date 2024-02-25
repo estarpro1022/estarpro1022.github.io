@@ -1,0 +1,193 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ubuntu下如何切换clash代理 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="ubuntu下如何切换clash代理 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="我们代理将要到期的时候，可能会更改另一家代理，那么原来的代理就作废了。
+Windows
+Windows下只需要在clash的订阅里手动切换一下即可
+
+Ubuntu
+Ubuntu下用命令行会操控clash稍微麻烦点。将Windows下代理的内..." />
+    <meta name="keywords" content="linux,clash" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              ubuntu下如何切换clash代理
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-10-09
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/L7HteT5Nt/" class="post-tag">
+                  # linux
+                </a>
+              
+                <a href="https://estarpro1022.github.io/tag/eRvS8kjfU7/" class="post-tag">
+                  # clash
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>我们代理将要到期的时候，可能会更改另一家代理，那么原来的代理就作废了。</p>
+<h1 id="windows">Windows</h1>
+<p>Windows下只需要在clash的订阅里手动切换一下即可<br>
+<img src="https://i.imgur.com/NRQl7Uw.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="ubuntu">Ubuntu</h1>
+<p>Ubuntu下用命令行会操控clash稍微麻烦点。将<strong>Windows下代理的内容</strong>粘贴到 <code>/etc/clash/config.yaml</code> 和<code>~/.config/clash/config.yaml</code> ，然后 <code>sudo systemctl restart clash</code> 即可。用curl www.google.com验证代理是否可用，如果输出一段html代码则证明可用</p>
+<p>我们再看一下Windows下的代理内容，右键上图中选中的代理，然后点击 <code>Edit</code>，弹出窗口的内容就是我们所需要的啦。<br>
+<img src="https://i.imgur.com/FxGWS5P.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>这里再推荐一个网页版的<a href="https://clash.razord.top/#/proxies">clash管理面板</a>，可以切换不同节点，在linux下管理会相对方便一些</p>
+<ul>
+<li><a href="https://github.com/Dreamacro/clash-dashboard/issues/77">秘钥可以到clash的配置文件中看</a>，Windows是<code>~/.config/clash/config.yaml</code>，里面包含端口号和秘钥</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#windows">Windows</a></li>
+<li><a href="#ubuntu">Ubuntu</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/guan-yu-tai-du-de-quan-mian-beng-pan/">
+              <h3 class="post-title">
+                关于态度的全面崩盘
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

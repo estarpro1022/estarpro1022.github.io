@@ -1,0 +1,302 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>vim剪切板和Ubuntu系统同步的探究 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="vim剪切板和Ubuntu系统同步的探究 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="嵌入式系统的作业要求Ubuntu 18.04系统。在南大ubuntu发行版[1]下载好iso镜像后，我们用VMware导入镜像，按照VMware安装Ubuntu的正常流程[2]安装操作系统。在调好界面大小、美观程度后，为了确保第一生产力，我..." />
+    <meta name="keywords" content="vim,ubuntu" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              vim剪切板和Ubuntu系统同步的探究
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-10-27
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/VbZbZ8qw-/" class="post-tag">
+                  # vim
+                </a>
+              
+                <a href="https://estarpro1022.github.io/tag/qGYxZzIo56/" class="post-tag">
+                  # ubuntu
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://i.imgur.com/2tyf686.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>嵌入式系统的作业要求Ubuntu 18.04系统。在<a href="https://mirror.nju.edu.cn/ubuntu-releases/18.04/">南大ubuntu发行版</a><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>下载好iso镜像后，我们用VMware导入镜像，按照<a href="https://blog.csdn.net/qq_41653487/article/details/106166192">VMware安装Ubuntu的正常流程</a><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>安装操作系统。在调好界面大小、美观程度后，为了确保第一生产力，我们的当务之急当然是要进行vim的基本配置。</p>
+<p>此前配置过Ubuntu 20.04系统的vim，所以有一些经验。这里主要讨论剪切板的问题。</p>
+<h1 id="虚拟机和windows主机剪切板同步">虚拟机和Windows主机剪切板同步</h1>
+<p>默认情况下，二者的剪切板的内容是不同的，所以我们需要<a href="https://kb.vmware.com/s/article/1018414">安装VMware Tools</a><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，通过某种神秘的机制使虚拟机和Windows的剪切板同步。此前的印象里，是在Windows下安装了某个支持同步的paste.exe文件，双击此执行文件就行了。</p>
+<p>至此，Windows下&lt;Ctrl + C&gt;的内容，在VMware下&lt;Ctrl + Shift + V&gt;就能粘贴。同理，VMware下&lt;Ctrl + Shift + C&gt;的东西，Windows下&lt;Ctrl + V&gt;也能粘贴。二者剪切板就同步了。</p>
+<p>有的教程提到<a href="https://blog.csdn.net/tsundere_x/article/details/104529864">客户机隔离实现剪切板同步</a><sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>，但是我自己的VMware并没有这个选项。可能是VMware Station Pro才有？</p>
+<h1 id="vim寄存器和系统剪切板互相调用">vim寄存器和系统剪切板互相调用</h1>
+<h2 id="vim寄存器">vim寄存器</h2>
+<p>这里先讨论下vim的寄存器，推荐篇<a href="https://harttle.land/2016/07/25/vim-registers.html">vim寄存器教程</a><sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>，这个博主的<a href="https://harttle.land/vim-practice.html">vim系列</a><sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>做的非常厉害。</p>
+<p>在 X11 系统中（绝大多数带有桌面环境的 Linux 发行版）</p>
+<ul>
+<li><code>&quot;*</code> 指 X11 中的 PRIMARY 选区，即鼠标选中区域。在桌面系统中可按鼠标中键粘贴。</li>
+<li><code>&quot;+</code> 指 X11 中的 CLIPBOARD 选区，即系统剪切板。在桌面系统中可按&lt;Ctrl + Shift + V&gt;粘贴。</li>
+</ul>
+<p><code>xclip -o</code> 输出的就是PRIMARY选区内容</p>
+<p>我们通过<code>:reg</code>查看各个寄存器存放的值</p>
+<h2 id="vim剪切板的基本配置">vim剪切板的基本配置</h2>
+<ol>
+<li><code>vim --version | grep clipboard</code>检查vim是否支持剪切板</li>
+<li>同步剪切板和匿名寄存器，<code>set clipboard=unnamed</code></li>
+</ol>
+<p>酌情考虑后，我们并没有采取<code>set clipboard=unnamed</code>的方案，因为会引起粘贴文本的混淆</p>
+<p>参考：<a href="https://harttle.land/2020/09/04/vim-clipboard.html">Vim 使用系统剪切板</a><sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
+<h2 id="xclip">xclip</h2>
+<p><code>man xclip</code>仔细阅读文档</p>
+<ul>
+<li>
+<p>输入：<code>xclip</code>、<code>xclip -i</code>将标准输入读到PRIMARY区，<code>xclip -i -selection c</code>将标准输入读到CLIPBOARD区，&lt;Ctrl + D&gt;用于终止输入</p>
+</li>
+<li>
+<p>输出：<code>xclip -o</code>将PRIMARY区的缓存内容输出，<code>xclip -o -selection c</code>将CLIPBOARD区内容输出</p>
+</li>
+<li>
+<p><code>echo -n &quot;123&quot; | xclip -selection c</code>将输出内容存放到CLIPBOARD区，即系统剪切板。我们可以&lt;Ctrl + Shift + V&gt;验证下粘贴内容是否为“123”</p>
+</li>
+</ul>
+<p>参考：<a href="https://einverne.github.io/post/2015/02/xclip-command-line-interface-to-x-selections.html">每天学习一个命令：xclip 与剪贴板交互</a><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></p>
+<h2 id="遇到的问题">遇到的问题</h2>
+<p>在Ubuntu 18.04系统下，<code>vim hello</code>进入编辑页面，visual mode模式下<code>&quot;+y</code>复制选中文本。退出vim后，&lt;Ctrl + Shift + V&gt;粘贴的内容为空，同时<code>xclip -o</code>报错<code>Error: target STRING not available</code>。</p>
+<p>然而，系统剪切板在vim界面<code>&quot;+p</code>是正常粘贴的，即终端复制的一段文本，可以在vim界面中粘贴。</p>
+<p>也就是说，文本复制到vim外部出了问题，粘贴到vim内倒是没问题的。</p>
+<p><a href="https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard">How to make vim paste from (and copy to) system's clipboard?</a><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>的回答中提到<code>&quot;+y</code>是可以将文本拷贝到系统剪切板的，这一现象在Ubuntu 20.04上得到了验证，但是在Ubuntu 18.04下并没有粘贴成功。所以我怀疑是Ubuntu系统自身的问题（坐等打脸。</p>
+<h2 id="分析问题">分析问题</h2>
+<p>在广泛搜罗资料后，一人道破天机：</p>
+<blockquote>
+<p>你是不是退出了 vim 才粘贴的？那样的话开个剪贴板管理工具吧。X 的剪贴板中的内容是放在 client 的，client 退出了剪贴板里就没东西了。。</p>
+</blockquote>
+<p>来源：https://groups.google.com/g/vim-cn/c/nLEiE7_MAl4/m/BDB1RCH24OIJ<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></p>
+<p>这样的话就说通了，在vim界面下，<code>+</code>和<code>*</code>寄存器都存有内容，且存放在X selection中。当退出vim后，client消失了，内容也就消失了。</p>
+<p>不过有两点疑问：</p>
+<ol>
+<li>为什么Ubuntu 20.04没有出现这样的情况？</li>
+<li>既然client消失了，剪切板内容消失了，在重新打开vim后，为什么<code>+</code>和<code>*</code>的内容还在？</li>
+</ol>
+<p>这个<a href="https://stackoverflow.com/a/5240536/17627011">回答</a><sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>最终给出了solution，通过<code>:call system('xclip', @0)</code>将last yank（上一次复制）交给xclip。</p>
+<p>我们稍稍做下改动：上述方法默认针对的是PRIMARY选区，既然我们想要Windows、VMware和vim的剪切板同步，我们就要针对系统剪切板，也就是CLIPBOARD选区，对应<code>+</code>寄存器。</p>
+<p>我们在<code>.vimrc</code>中加入如下两行，应付常用的复制操作绰绰有余</p>
+<pre><code>nnoremap &quot;+yy &quot;+yy:call system(&quot;xclip -selection c&quot;, @+)&lt;Enter&gt;
+vnoremap &quot;+y &quot;+y:call system(&quot;xclip -selection c&quot;, @+)&lt;Enter&gt;
+</code></pre>
+<p>其实在<a href="https://harttle.land/2020/09/04/vim-clipboard.html">Vim 使用系统剪切板</a><sup class="footnote-ref"><a href="#fn7" id="fnref7:1">[7:1]</a></sup>的最后一段已经提到了<code>xclip</code>的方法，只是本人太过粗心，没有看到。</p>
+<h1 id="mixed-knowledge">Mixed Knowledge</h1>
+<h2 id="ubuntu-1804下调整界面">Ubuntu 18.04下调整界面</h2>
+<p>安装完Ubuntu后，界面十分小，只占了屏幕中心一小块，我们在设置中调整界面尺寸、字体大小和图标大小。</p>
+<ul>
+<li>界面：桌面右键选择&quot;Change Background&quot;--&gt;Devices--&gt;Displays--&gt;Resolution调整分辨率</li>
+<li>字体：桌面右键选择&quot;Change Background&quot;--&gt;Universal Access--&gt;Large Text</li>
+<li>图标：桌面右键选择&quot;Change Background&quot;--&gt;Dock--&gt;Icon Size</li>
+</ul>
+<h2 id="vim状态栏显示按下的字符">vim状态栏显示按下的字符</h2>
+<p><code>.vimrc</code>添加语句<code>set showcmd</code></p>
+<h2 id="iso镜像">ISO镜像</h2>
+<p>ISO镜像用来安装操作系统，安装完毕后就可以不管了。</p>
+<h2 id="安装镜像过程中询问清除整个磁盘并安装ubuntu">安装镜像过程中询问“清除整个磁盘并安装Ubuntu”</h2>
+<p>它不会删除你计算机中的任何内容，<strong>放心点它就行</strong></p>
+<h2 id="navigate-through-vim-help-docs">navigate through vim help docs</h2>
+<p>&lt;Ctrl + ]&gt; 跳转光标下的tag，&lt;Ctrl + o&gt;返回原先光标位置<br>
+<br></p>
+<h1 id="div-aligncenter-stylecolor-redfont-size-3remreferencediv"><div align="center" style="color: red;font-size: 3rem">Reference</div></h1>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://mirror.nju.edu.cn">南大mirror镜像</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://blog.csdn.net/qq_41653487/article/details/106166192">Win10虚拟机VMware安装Ubuntu 18.04</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://kb.vmware.com/s/article/1018414">VMware Tools</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a href="https://blog.csdn.net/tsundere_x/article/details/104529864">客户机隔离解决主机与虚拟机剪切板独立的问题</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a href="https://harttle.land/2016/07/25/vim-registers.html">vim寄存器教程</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a href="https://harttle.land/vim-practice.html">完全用 Vim 工作系列</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p><a href="https://harttle.land/2020/09/04/vim-clipboard.html">Vim 使用系统剪切板</a> <a href="#fnref7" class="footnote-backref">↩︎</a> <a href="#fnref7:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a href="https://einverne.github.io/post/2015/02/xclip-command-line-interface-to-x-selections.html">每天学习一个命令：xclip 与剪贴板交互</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p><a href="https://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard">How to make vim paste from (and copy to) system's clipboard?</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p><a href="https://groups.google.com/g/vim-cn/c/nLEiE7_MAl4/m/BDB1RCH24OIJ">vim如何和bash共用剪贴板</a> <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p><a href="https://stackoverflow.com/questions/5240473/in-vim-with-xclip-yank-to-clipboard">in vim with xclip, yank to clipboard</a> <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8Cwindows%E4%B8%BB%E6%9C%BA%E5%89%AA%E5%88%87%E6%9D%BF%E5%90%8C%E6%AD%A5">虚拟机和Windows主机剪切板同步</a></li>
+<li><a href="#vim%E5%AF%84%E5%AD%98%E5%99%A8%E5%92%8C%E7%B3%BB%E7%BB%9F%E5%89%AA%E5%88%87%E6%9D%BF%E4%BA%92%E7%9B%B8%E8%B0%83%E7%94%A8">vim寄存器和系统剪切板互相调用</a>
+<ul>
+<li><a href="#vim%E5%AF%84%E5%AD%98%E5%99%A8">vim寄存器</a></li>
+<li><a href="#vim%E5%89%AA%E5%88%87%E6%9D%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE">vim剪切板的基本配置</a></li>
+<li><a href="#xclip">xclip</a></li>
+<li><a href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">遇到的问题</a></li>
+<li><a href="#%E5%88%86%E6%9E%90%E9%97%AE%E9%A2%98">分析问题</a></li>
+</ul>
+</li>
+<li><a href="#mixed-knowledge">Mixed Knowledge</a>
+<ul>
+<li><a href="#ubuntu-1804%E4%B8%8B%E8%B0%83%E6%95%B4%E7%95%8C%E9%9D%A2">Ubuntu 18.04下调整界面</a></li>
+<li><a href="#vim%E7%8A%B6%E6%80%81%E6%A0%8F%E6%98%BE%E7%A4%BA%E6%8C%89%E4%B8%8B%E7%9A%84%E5%AD%97%E7%AC%A6">vim状态栏显示按下的字符</a></li>
+<li><a href="#iso%E9%95%9C%E5%83%8F">ISO镜像</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AF%A2%E9%97%AE%E6%B8%85%E9%99%A4%E6%95%B4%E4%B8%AA%E7%A3%81%E7%9B%98%E5%B9%B6%E5%AE%89%E8%A3%85ubuntu">安装镜像过程中询问“清除整个磁盘并安装Ubuntu”</a></li>
+<li><a href="#navigate-through-vim-help-docs">navigate through vim help docs</a></li>
+</ul>
+</li>
+<li><a href="#div-aligncenter-stylecolor-redfont-size-3remreferencediv"><div align="center" style="color: red;font-size: 3rem">Reference</div></a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/fu-wu-duan-kai-fa-hw06-mongodb/">
+              <h3 class="post-title">
+                服务端开发--Hw06 MongoDB
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

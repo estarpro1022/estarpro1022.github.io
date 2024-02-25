@@ -1,0 +1,247 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Windows的Powershell输入命令conda activate报错，并且环境名不显示 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Windows的Powershell输入命令conda activate报错，并且环境名不显示 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="问题1
+机器学习作业需要用到anaconda，然而在打开终端，输入conda activate pytorch后报错
+$ conda activate pytorch
+usage: conda-script.py [-h] [-v] [--..." />
+    <meta name="keywords" content="Anaconda" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Windows的Powershell输入命令conda activate报错，并且环境名不显示
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-12-13
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/QWvfZ_OP0/" class="post-tag">
+                  # Anaconda
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="问题1">问题1</h2>
+<p>机器学习作业需要用到anaconda，然而在打开终端，输入<code>conda activate pytorch</code>后报错</p>
+<pre><code class="language-shell">$ conda activate pytorch
+usage: conda-script.py [-h] [-v] [--no-plugins] [-V] COMMAND ...
+conda-script.py: error: argument COMMAND: invalid choice: 'activate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'build', 'content-trust', 'convert', 'debug', 'develop', 'doctor', 'index', 'inspect', 'metapackage', 'render', 'repoquery', 'skeleton', 'verify', 'env', 'repo', 'token', 'pack', 'server')
+</code></pre>
+<h3 id="探究">探究</h3>
+<ol>
+<li>系统变量添加了<code>D:\software\Anaconda</code>，<code>D:\software\Anaconda\Scripts</code>，<code>D:\software\Anaconda\Library\bin</code>，没问题</li>
+<li><a href="https://stackoverflow.com/questions/77376509/why-i-am-not-able-to-use-conda-activate-command">Why I am not able to use &quot;conda activate&quot; command in git bash?</a> 中提到解决方案<code>conda init bash</code>然后重启bash，即可在git bash中使用<code>conda activate &lt;env_name&gt;</code></li>
+<li>对于conda版本小于4.4，有的解答使用<code>activate &lt;env_name&gt;</code>激活对应环境</li>
+</ol>
+<h3 id="解决方法">解决方法</h3>
+<p><code>conda init cmd.exe</code>和<code>conda init powershell</code>（管理员模式下运行）</p>
+<p><a href="https://stackoverflow.com/a/71092431/17627011">solution: conda init powershell has no effect</a> 提到<code>C:\Users\&lt;username&gt;\Documents\WindowsPowerShell\profile.ps1&quot;</code>需要包含以下文件内容</p>
+<ul>
+<li>注意<code>Anaconda</code>路径</li>
+</ul>
+<pre><code class="language-powershell">#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+(&amp; &quot;D:\software\Anaconda\Scripts\conda.exe&quot; &quot;shell.powershell&quot; &quot;hook&quot;) | Out-String | Invoke-Expression
+#endregion
+</code></pre>
+<p>在<code>conda init powershell</code>后，<code>profile.ps1</code>的原有内容并没有修改，导致powershell启动时出现如下错误。后经检查发现Anaconda的路径变了，但是init并没有改变修改后的Anaconda路径。</p>
+<pre><code>&amp; : 无法将“D:\Anaconda\Scripts\conda.exe”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如
+果包括路径，请确保路径正确，然后再试一次。
+...
+</code></pre>
+<h2 id="问题2">问题2</h2>
+<p>conda的虚拟环境名并没有加载</p>
+<h3 id="探究-2">探究</h3>
+<ol>
+<li>在git bash中<code>conda init bash</code>并<strong>重启bash</strong>后就好了</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://i.imgur.com/o8aTjEv.png" alt="image-20231213164445755" loading="lazy"></figure>
+<ol start="2">
+<li><code>~/.condarc</code>文件内容</li>
+</ol>
+<pre><code>channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirror.nju.edu.cn/anaconda/pkgs/main
+  - https://mirror.nju.edu.cn/anaconda/pkgs/r
+  - https://mirror.nju.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
+  msys2: https://mirror.nju.edu.cn/anaconda/cloud
+  bioconda: https://mirror.nju.edu.cn/anaconda/cloud
+  menpo: https://mirror.nju.edu.cn/anaconda/cloud
+  pytorch: https://mirror.nju.edu.cn/anaconda/cloud
+  simpleitk: https://mirror.nju.edu.cn/anaconda/cloud
+auto_activate_base: true
+changeps1: true
+</code></pre>
+<h3 id="解答">解答</h3>
+<p>修复了问题1的问题后，并在<code>~/.condarc</code>中添加<code>changeps1: true</code>后，即可正常显示环境名</p>
+<figure data-type="image" tabindex="2"><img src="https://i.imgur.com/o58Z8Xq.png" alt="image-20231213164749675" loading="lazy"></figure>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%97%AE%E9%A2%981">问题1</a>
+<ul>
+<li><a href="#%E6%8E%A2%E7%A9%B6">探究</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#%E9%97%AE%E9%A2%982">问题2</a>
+<ul>
+<li><a href="#%E6%8E%A2%E7%A9%B6-2">探究</a></li>
+<li><a href="#%E8%A7%A3%E7%AD%94">解答</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/wsl-de-export-he-importshi-fang-c-pan-kong-jian/">
+              <h3 class="post-title">
+                wsl的export和import，释放C盘空间
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>wsl的export和import，释放C盘空间 | Kartone的小窝</title>
+<link rel="shortcut icon" href="https://estarpro1022.github.io//favicon.ico?v=1708847399321">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://estarpro1022.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="wsl的export和import，释放C盘空间 | Kartone的小窝 - Atom Feed" href="https://estarpro1022.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="C盘空间又不够了，于是用spacesniffer查看磁盘使用情况，发现wsl占用了很大一块空间。win+r输入%localappdata%\Packages，找到CanonicalGroupLimited.Ubuntu20.04LTS，文件..." />
+    <meta name="keywords" content="wsl,vim" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://estarpro1022.github.io/">
+  <img class="avatar" src="https://estarpro1022.github.io//images/avatar.png?v=1708847399321" alt="">
+  </a>
+  <h1 class="site-title">
+    Kartone的小窝
+  </h1>
+  <p class="site-description">
+    没有什么能改变一个人，除了他自己
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              wsl的export和import，释放C盘空间
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-11-07
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://estarpro1022.github.io/tag/r9KUNpnsW/" class="post-tag">
+                  # wsl
+                </a>
+              
+                <a href="https://estarpro1022.github.io/tag/VbZbZ8qw-/" class="post-tag">
+                  # vim
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>C盘空间又不够了，于是用spacesniffer查看磁盘使用情况，发现wsl占用了很大一块空间。<code>win+r</code>输入<code>%localappdata%\Packages</code>，找到CanonicalGroupLimited.Ubuntu20.04LTS，文件夹占的空间很大。于是决定将wsl迁移到D盘（D盘默默流泪😓</p>
+<h1 id="wsl迁移及设置默认用户">wsl迁移及设置默认用户</h1>
+<ol>
+<li><code>wsl -l -v</code> 查看Ubuntu发行版，确定distribution name</li>
+</ol>
+<pre><code class="language-powershell">PS C:\Users\estar&gt; wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu-20.04           Stopped         2
+  docker-desktop-data    Stopped         2
+  docker-desktop         Stopped         2
+</code></pre>
+<ol start="2">
+<li><code>wsl --shutdown</code> 终止所有正在运行的分发（distribution）</li>
+<li><code>wsl --export Ubuntu-20.04 &quot;D:\ubuntu_20_04\ubuntu20_04.tar&quot;</code> 将指定分发导出到特定磁盘位置，导出文件后缀为<strong>tar</strong>。通常可以用作备份</li>
+<li><code>wsl --unregister Ubuntu-20.04</code> 注销分发，释放空间</li>
+<li><code>wsl --import Ubuntu-20.04 &quot;D:\ubuntu_20_04\ubuntu&quot; &quot;D:\ubuntu_20_04\ubuntu20_04.tar&quot;</code> 将tar文件导入到D盘，分发名称为<code>Ubuntu-20.04</code></li>
+<li><code>wsl --set-default Ubuntu-20.04</code> 设置Ubuntu-20.04为默认发行版</li>
+<li><code>wsl</code> 启动默认wsl发行版，发现登录用户为root，我们可以修改default user</li>
+<li><code>vim /etc/wsl.conf</code> 填入以下内容</li>
+</ol>
+<pre><code>[user]
+default=kartone  
+</code></pre>
+<ol start="9">
+<li><code>exit</code> 退出wsl，然后<code>wsl --shutdown</code>，重新进入<code>wsl</code>用户名即是<code>kartone</code>了</li>
+</ol>
+<p>参考：</p>
+<ul>
+<li><a href="http://t.csdnimg.cn/N7x09">使用wsl命令迁移WSL</a></li>
+<li><a href="https://github.com/LpCodes/Moving-WSL-Distribution-to-Another-Drive">Moving WSL Distribution to Another Drive</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/510650353">WSL2 Ubuntu-20.04文件太占c盘空间，使用导入导出来实现位置挪移，移动到d盘下面</a></li>
+</ul>
+<h1 id="mixed">Mixed</h1>
+<ul>
+<li>关于wsl的vim复制粘贴</li>
+</ul>
+<p><code>vim ~/.vimrc</code>的最后几行，是之前添加的，能够实现复制粘贴的功能</p>
+<pre><code class="language-bash">map ;y :!/mnt/c/Windows/System32/clip.exe &lt;cr&gt;u
+map ;p :read !/mnt/c/Windows/System32/paste.exe &lt;cr&gt;i&lt;bs&gt;&lt;esc&gt;l
+map! ;p &lt;esc&gt;:read !/mnt/c/Windows/System32/paste.exe &lt;cr&gt;i&lt;bs&gt;&lt;esc&gt;l
+</code></pre>
+<p><code>paste.exe</code>是网上找的</p>
+<ul>
+<li>官方文档</li>
+</ul>
+<p>在上网查资料时，遇到一些非官方教程，内心难免会产生不信任的心理，这是就不要继续查找别的非官方教程了，直接打开<strong>官方文档</strong>，找到相关内容。比如Windows的<a href="https://learn.microsoft.com/zh-cn/windows/wsl/">适用于 Linux 的 Windows 子系统文档</a>就很详细，关于wsl的一些命令都解释得很清楚。</p>
+<p>同时<code>wsl -h</code>也提供了相关解释。</p>
+<p><mark>信不过民间答案的时候，请务必求助于官方解答。</mark></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#wsl%E8%BF%81%E7%A7%BB%E5%8F%8A%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%94%A8%E6%88%B7">wsl迁移及设置默认用户</a></li>
+<li><a href="#mixed">Mixed</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://estarpro1022.github.io/post/ros-xiao-wu-gui-zhui-zhu-zhan/">
+              <h3 class="post-title">
+                ROS小乌龟追逐战
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://estarpro1022.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
